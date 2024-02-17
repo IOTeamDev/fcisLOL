@@ -1,8 +1,6 @@
-<h1 align='center'>Physics-Origin</h1>
+<h1 align='center'>FCIS LOL </h1>
 
-<p align='center'><img src="https://raw.githubusercontent.com/ibrahim317/physics-origin/main/public/assets/design.png" alt="Physics Origin" width="687" height="428"></p>
 
-<h3 align='center'>Ｅｄｕｃａｔｉｏｎａｌ　Ｐｌａｔｆｏｒｍ　ｆｏｒ　Ｅｎｇ．　Ａｈｍｅｄ　Ｙｏｕｓｓｅｆ 🎓📚</h3>
 
-<h3 align='center'>𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚍 𝚋𝚢 𝙸𝚋𝚛𝚊𝚑𝚒𝚖 𝚊𝚗𝚍 𝙾𝚖𝚊𝚛</h3>
-<h2 align='center>@𝙸𝚋𝚛𝚊𝚑𝚒𝚖𝟹𝟽  @𝙼𝟷𝚐𝚑𝚝𝚢𝙼𝚞𝚜𝚑𝚛𝚘𝚘𝚖 .</h2>
+<h3 align='center'> U N O F F I C I A L 　N O T E S 　A N D 　V I D E O S 　S H A R I N G 　Ｐｌａｔｆｏｒｍ　F O R 　F C I S 　S T U D E N T S 🎓📚</h3>
+
