@@ -39,3 +39,5 @@ jspm_packages
 
 # docker-compose files
 docker-compose.yml
+
+.env
