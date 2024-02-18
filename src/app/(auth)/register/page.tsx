@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import SingUpForm from "./SingUpForm";
+import RegisterForm from "./RegisterForm";
 
 const page = () => {
 	return (
@@ -15,7 +15,7 @@ const page = () => {
 							</p>
 						</div>
 					</div>
-					<SingUpForm />
+					<RegisterForm />
 					<div className="flex max-sm:flex-col items-center justify-center py-2 border-t space-x-4">
 						<span className="text-sm text-gray-500 dark:text-gray-400">
 							Already have an account?
