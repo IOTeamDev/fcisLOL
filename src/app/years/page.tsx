@@ -1,5 +1,5 @@
 import React from "react";
-import TheCard from "@/src/components/theCard";
+import TheCard from "@/src/components/TheCard";
 import LinkCard from "@/src/components/LinkCard";
 
 const Page = () => {
