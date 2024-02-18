@@ -11,9 +11,7 @@ const ChangeTheme = () => {
 				setTheme(resolvedTheme === "light" ? "dark" : "light");
 			}}
 		>
-			<Button variant={"ghost"}>
-				{resolvedTheme === "light" ? "Dark mode" : "Light mode"}
-			</Button>
+			<Button variant={"ghost"}>Change theme</Button>
 		</div>
 	);
 };

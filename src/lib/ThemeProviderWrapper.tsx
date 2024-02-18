@@ -3,9 +3,5 @@
 import { ThemeProvider } from "next-themes";
 
 export default function MyThemeProvider({ children }: { children: any }) {
-	return (
-		<ThemeProvider defaultTheme="dark" attribute="class">
-			{children}
-		</ThemeProvider>
-	);
+	return <ThemeProvider attribute="class">{children}</ThemeProvider>;
 }
