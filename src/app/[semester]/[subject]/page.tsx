@@ -29,7 +29,40 @@ const page = async ({ params }: { params: { subject: string } }) => {
 	return (
 		<div className="min-w-sreen min-h-[calc(100vh-75px)] p-20 flex flex-col gap-9 ">
 			<h2 className="text-3xl "> {currentSubject?.name} </h2>
-			<div className="grid grid-cols-4 max-xl:grid-cols-3 max-md:grid-cols-2  gap-5 ">
+			<div className="grid grid-cols-4 max-xl:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-5 ">
+				<LinkCard href={``}>
+					<p>test title and so one</p>
+				</LinkCard>
+				<LinkCard href={``}>
+					<p>test title and so one</p>
+				</LinkCard>
+				<LinkCard href={``}>
+					<p>test title and so one</p>
+				</LinkCard>
+				<LinkCard href={``}>
+					<p>test title and so one</p>
+				</LinkCard>
+				<LinkCard href={``}>
+					<p>test title and so one</p>
+				</LinkCard>
+				<LinkCard href={``}>
+					<p>test title and so one</p>
+				</LinkCard>
+				<LinkCard href={``}>
+					<p>test title and so one</p>
+				</LinkCard>
+				<LinkCard href={``}>
+					<p>test title and so one</p>
+				</LinkCard>
+				<LinkCard href={``}>
+					<p>test title and so one</p>
+				</LinkCard>
+				<LinkCard href={``}>
+					<p>test title and so one</p>
+				</LinkCard>
+				<LinkCard href={``}>
+					<p>test title and so one</p>
+				</LinkCard>
 				{currentSubject?.videos.map((video, index) => (
 					<>
 						<LinkCard key={index} href={`${params.subject}/${video.id}`}>
