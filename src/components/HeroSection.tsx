@@ -18,34 +18,38 @@ import React from "react";
 export default function Hero() {
 	// const randomPhoto = getRandomPhoto();
 
-	return (
-		<section className="w-full py-12 md:py-24 lg:py-32">
-			<div className="container px-4 md:px-6">
-				<div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
-					<img
-						alt="Image"
-						className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
-						height="310"
-						src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2t0NDFnYzV0d3h4OHl5MHc0aG90eXRyNHd6YmxydDd3cXlibnpoMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fhAwk4DnqNgw8/giphy.gif"
-						width="550"
-					/>
-					<div className="flex flex-col justify-center space-y-4">
-						<div className="space-y-2">
-							<h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-								Simply Laughing at the Face of Subjects!
-							</h1>
-							<p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-								Discover, Learn, Grow: Your Gateway to Endless Possibilities
-							</p>
-						</div>
-						<div className="flex flex-col gap-2 min-[400px]:flex-row">
-							<Link href="/years" className="w-full">
-								<Button className="w-full">Start Now!</Button>
-							</Link>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
+  return (
+    <section className="w-full py-12 md:py-24 lg:py-32">
+      <div className="container px-4 md:px-6">
+        <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
+          <img
+            alt="Image"
+            className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
+            height="310"
+            src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2t0NDFnYzV0d3h4OHl5MHc0aG90eXRyNHd6YmxydDd3cXlibnpoMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fhAwk4DnqNgw8/giphy.gif"
+            width="550"
+          />
+          <div className="flex flex-col justify-center space-y-4">
+            <div className="space-y-2">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                SimplyLaughing at the Face of Subjects!
+              </h1>
+              <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                Discover, Learn, Grow: Your Gateway to Endless Possibilities.
+                haha!
+              </p>
+            </div>
+            <div className="flex flex-col gap-2 min-[400px]:flex-row">
+              <a
+                href="/years"
+                className="w-full flex justify-center border-[#020817] border-2 py-2 rounded-xl bg-[#020817] text-white font-bold dark:bg-white dark:text-[#020817]"
+              >
+                Start Now!
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
