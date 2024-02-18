@@ -1,5 +1,6 @@
-<h1 align='center'>𝙵𝙲𝙸𝚂 𝙻𝙾𝙻</h1>
+<h1 align='center'>FCIS LOL</h1>
 
-<h5 align="center">𝚜𝚒𝚖𝚙𝚕𝚢 𝙻𝚊𝚞𝚐𝚑𝚒𝚗𝚐 𝚊𝚝 𝚝𝚑𝚎 𝙵𝚊𝚌𝚎 𝚘𝚏 𝚂𝚞𝚋𝚓𝚎𝚌𝚝𝚜!</h5>
 
-<h3 align='center'>𝚄𝙽𝙾𝙵𝙵𝙸𝙲𝙸𝙰𝙻 𝙽𝙾𝚃𝙴𝚂 𝙰𝙽𝙳 𝚅𝙸𝙳𝙴𝙾𝚂 𝚂𝙷𝙰𝚁𝙸𝙽𝙶 𝙿𝙻𝙰𝚃𝚁𝙾𝚃𝙼 𝙵𝙾𝚁 𝙵𝙲𝙸𝚂 𝚂𝚃𝚄𝙳𝙴𝙽𝚃𝚂 🎓📚</h3>
+<h3 align='center'>Unofficial Notes and Videos Sharing Platform for FCIS Students 🎓📚</h3>
+
+<h5 align="center">We've made this repository public so that everyone can explore and contribute. Enjoy navigating around! 😊 Don't forget to address any issues you come across. Your contributions are appreciated! ♥️</h5>

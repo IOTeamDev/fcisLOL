@@ -17,3 +17,5 @@ export const getSubjectVideos = async (video: any) => {
 		throw err;
 	}
 };
+
+prisma.$disconnect();

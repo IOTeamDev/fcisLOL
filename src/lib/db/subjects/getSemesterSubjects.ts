@@ -1,13 +1,15 @@
 "use server";
 import prisma from "@/src/lib/PrismaClient";
 
-export const getSubjectVideos = async (semester: undefined | number) => {
+export const getSemesterSubjects = async (semester: undefined | number) => {
 	try {
-		const videos = await prisma.subject.findMany({
-			where: { semesterId: semester },
+		const subjects = await prisma.subject.findMany({
+			where: { semesterId: { equals: semester } },
 		});
-		return videos;
+		return subjects;
 	} catch (err) {
 		throw err;
 	}
 };
+
+prisma.$disconnect();
