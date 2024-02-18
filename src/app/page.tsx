@@ -1,9 +1,14 @@
 import React from "react";
-import Link from "next/link";
+import NavBar from "../components/NavBar";
 import Hero from "../components/HeroSection";
 
 const page = () => {
-	return <Hero />;
+  return (
+    <>
+      <NavBar />
+      <Hero />
+    </>
+  );
 };
 
 export default page;
