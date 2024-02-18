@@ -36,3 +36,8 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 .next
+
+# docker-compose files
+docker-compose.yml
+
+.env
