@@ -1,6 +1,7 @@
 import "@/src/styles/app.css";
 import { Toaster } from "react-hot-toast";
 import ThemeProviderWrapper from "../lib/ThemeProviderWrapper";
+import NavBar from "../components/NavBar";
 export default function RootLayout({
 	children,
 }: {
@@ -8,15 +9,12 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body
-				className=""
-				// className="bg-[#090909]   "
-			>
+			<body>
 				<Toaster position="top-right" reverseOrder />
-
-				<ThemeProviderWrapper>{children}</ThemeProviderWrapper>
-				<nav></nav>
-				<footer></footer>
+				<ThemeProviderWrapper>
+					<NavBar />
+					{children}
+				</ThemeProviderWrapper>
 			</body>
 		</html>
 	);

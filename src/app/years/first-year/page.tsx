@@ -1,4 +1,4 @@
-import LinkCard from "@/src/components/LinkCard";
+import LinkCard from "@/src/lib/components/LinkCard";
 import React from "react";
 
 const page = () => {
