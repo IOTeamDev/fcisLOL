@@ -13,7 +13,8 @@ export default function RootLayout({
 				<Toaster position="top-right" reverseOrder />
 				<ThemeProviderWrapper>
 					<NavBar />
-					{children}
+					<main>{children}</main>
+					<footer></footer>
 				</ThemeProviderWrapper>
 			</body>
 		</html>
