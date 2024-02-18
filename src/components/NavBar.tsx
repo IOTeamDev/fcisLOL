@@ -4,7 +4,7 @@ import ChangeTheme from "./ChangeTheme";
 
 export default function NavBar() {
   return (
-    <nav className="w-full p-2 fixed">
+    <nav className="w-full p-2 fixed z-10">
       <div className="flex justify-center items-center">
         <div className="w-3/4 flex items-center justify-between h-14">
           <Link

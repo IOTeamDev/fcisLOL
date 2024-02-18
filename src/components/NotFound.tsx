@@ -1,5 +1,4 @@
-
-function NotFound() {
+const NotFound = () => {
   return (
     <div className="w-full min-h-[calc(100vh-75px)] flex flex-col justify-center items-center">
       <img
@@ -10,6 +9,6 @@ function NotFound() {
       <p className="text-4xl font-extrabold absolute text-white">404 POP LOL</p>
     </div>
   );
-}
+};
 
 export default NotFound;
