@@ -33,7 +33,8 @@ export default function Hero() {
                 SimplyLaughing at the Face of Subjects!
               </h1>
               <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Discover, Learn, Grow: Your Gateway to Endless Possibilities
+                Discover, Learn, Grow: Your Gateway to Endless Possibilities.
+                haha!
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
