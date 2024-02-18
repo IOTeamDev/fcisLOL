@@ -1,6 +1,5 @@
-<h1 align='center'>FCIS LOL </h1>
+<h1 align='center'>𝙵𝙲𝙸𝚂 𝙻𝙾𝙻</h1>
 
+<h5 align="center">𝚜𝚒𝚖𝚙𝚕𝚢 𝙻𝚊𝚞𝚐𝚑𝚒𝚗𝚐 𝚊𝚝 𝚝𝚑𝚎 𝙵𝚊𝚌𝚎 𝚘𝚏 𝚂𝚞𝚋𝚓𝚎𝚌𝚝𝚜!</h5>
 
-
-<h3 align='center'> U N O F F I C I A L 　N O T E S 　A N D 　V I D E O S 　S H A R I N G 　Ｐｌａｔｆｏｒｍ　F O R 　F C I S 　S T U D E N T S 🎓📚</h3>
-
+<h3 align='center'>𝚄𝙽𝙾𝙵𝙵𝙸𝙲𝙸𝙰𝙻 𝙽𝙾𝚃𝙴𝚂 𝙰𝙽𝙳 𝚅𝙸𝙳𝙴𝙾𝚂 𝚂𝙷𝙰𝚁𝙸𝙽𝙶 𝙿𝙻𝙰𝚃𝚁𝙾𝚃𝙼 𝙵𝙾𝚁 𝙵𝙲𝙸𝚂 𝚂𝚃𝚄𝙳𝙴𝙽𝚃𝚂 🎓📚</h3>
