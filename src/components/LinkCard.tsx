@@ -1,17 +1,19 @@
 import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-const LinkCard = ({ children, href }: { children: any, href: string }) => {
+const LinkCard = ({ children, href }: { children: any; href: string }) => {
   return (
-    <Link
-      href={href}
-      className="duration-100 hover:scale-105 min-h-[300px] p-4 min-w-[300px] rounded-lg flex justify-center items-center border-2"
-    >
-      {children}
+    <Link href={href} className="hover:scale-105 duration-200 cursor-pointer">
+      <Card>
+        <CardHeader>
+          <CardTitle>{children}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-3xl">✨</p>
+        </CardContent>
+      </Card>
     </Link>
   );
 };
 
 export default LinkCard;
-
-
-
