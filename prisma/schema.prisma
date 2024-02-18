@@ -6,6 +6,13 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+model User {
+  id Int @id @default(autoincrement())
+  name String 
+  password String
+  email String @unique
+  videos Video[]
+}
 
 model Year {
   id        Int       @id @default(autoincrement())
@@ -36,4 +43,6 @@ model Video {
   description String
   subjectId Int
   subject   Subject  @relation(fields: [subjectId], references: [id])
+  userId Int
+  publisher   User  @relation(fields: [userId], references: [id])
 }

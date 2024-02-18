@@ -2,9 +2,8 @@
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GitHubProvider from "next-auth/providers/github";
-// import { PrismaClient } from "@/prisma/generated/client";
-
-// const prisma = new PrismaClient();
+import { PrismaClient } from "@prisma/client/extension";
+const prisma = PrismaClient();
 
 export const authOptions: NextAuthOptions = {
 	// adapter: prismaAdapter, // inserted prisma client
@@ -19,44 +18,44 @@ export const authOptions: NextAuthOptions = {
 			clientId: process.env.GITHUB_ID as string,
 			clientSecret: process.env.GITHUB_SECRET as string,
 		}),
-		// CredentialsProvider({
-		// 	name: "Credentials", // use this name when using signIn function
-		// 	credentials: {
-		// 		phone: {
-		// 			label: "phone",
-		// 			type: "text",
-		// 		},
-		// 		password: {
-		// 			label: "password",
-		// 			type: "password",
-		// 		},
-		// 	},
+		CredentialsProvider({
+			name: "Credentials", // use this name when using signIn function
+			credentials: {
+				phone: {
+					label: "phone",
+					type: "text",
+				},
+				password: {
+					label: "password",
+					type: "password",
+				},
+			},
 
-		// 	async authorize(credentials) {
-		// 		if (!credentials) {
-		// 			throw new Error("Credentials not provided");
-		// 		}
+			async authorize(credentials) {
+				if (!credentials) {
+					throw new Error("Credentials not provided");
+				}
 
-		// 		// check to see if user exists
-		// 		const user = await prisma.user.findUnique({
-		// 			where: {
-		// 				phone: credentials?.phone,
-		// 			},
-		// 		});
-		// 		// if no user was found
-		// 		if (!user) {
-		// 			throw new Error("No user found");
-		// 		}
+				// check to see if user exists
+				const user = await prisma.user.findUnique({
+					where: {
+						phone: credentials?.phone,
+					},
+				});
+				// if no user was found
+				if (!user) {
+					throw new Error("No user found");
+				}
 
-		// 		const passwordMatch = credentials?.password === user.pass;
-		// 		// if password does not match
-		// 		if (!passwordMatch) {
-		// 			throw new Error("Incorrect password");
-		// 		}
+				const passwordMatch = credentials?.password === user.pass;
+				// if password does not match
+				if (!passwordMatch) {
+					throw new Error("Incorrect password");
+				}
 
-		// 		return user as any;
-		// 	},
-		// }),
+				return user as any;
+			},
+		}),
 	],
 	pages: {
 		signIn: "/login",

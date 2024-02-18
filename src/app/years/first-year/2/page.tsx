@@ -17,7 +17,7 @@ const page = () => {
 	];
 
 	return (
-		<div className="min-w-sreen h-screen flex justify-center items-center bg-black ">
+		<div className="min-w-sreen h-screen flex justify-center items-center   ">
 			<div className="grid grid-cols-4 max-xl:grid-cols-2 max-md:grid-cols-1  gap-5 ">
 				{avaliableSubjects.map((subject, index) => (
 					<>
