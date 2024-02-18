@@ -1,4 +1,5 @@
 import LinkCard from "@/src/components/LinkCard";
+import NotFound from "@/src/components/NotFound";
 import { getSemesterSubjects } from "@/src/lib/db/subjects/getSemesterSubjects";
 import React from "react";
 
@@ -10,11 +11,7 @@ const page = async ({ params }: { params: { semester: string } }) => {
     if (currentSemesterSubject.length == 0) throw new Error();
   } catch (err) {
     return (
-      <>
-        <div className="w-full min-h-[calc(100vh-75px)] flex justify-center items-center">
-          <p className="text-4xl font-extrabold">404 POP LOL </p>
-        </div>
-      </>
+      <NotFound />
     );
   }
   return (
