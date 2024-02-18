@@ -2,8 +2,8 @@
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GitHubProvider from "next-auth/providers/github";
-import { PrismaClient } from "@prisma/client/extension";
-const prisma = PrismaClient();
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
 
 export const authOptions: NextAuthOptions = {
 	// adapter: prismaAdapter, // inserted prisma client
@@ -21,9 +21,9 @@ export const authOptions: NextAuthOptions = {
 		CredentialsProvider({
 			name: "Credentials", // use this name when using signIn function
 			credentials: {
-				phone: {
-					label: "phone",
-					type: "text",
+				email: {
+					label: "email",
+					type: "email",
 				},
 				password: {
 					label: "password",
@@ -39,7 +39,7 @@ export const authOptions: NextAuthOptions = {
 				// check to see if user exists
 				const user = await prisma.user.findUnique({
 					where: {
-						phone: credentials?.phone,
+						email: credentials?.email,
 					},
 				});
 				// if no user was found
@@ -47,7 +47,7 @@ export const authOptions: NextAuthOptions = {
 					throw new Error("No user found");
 				}
 
-				const passwordMatch = credentials?.password === user.pass;
+				const passwordMatch = credentials?.password === user.password;
 				// if password does not match
 				if (!passwordMatch) {
 					throw new Error("Incorrect password");

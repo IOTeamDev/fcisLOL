@@ -24,7 +24,7 @@ const page = () => {
 						<Link
 							key={index}
 							href={`/first-year/1/${convertAndLowerCase(subject)}`}
-							className="min-h-[300px] p-10 flex justify-center items-center min-w-[300px] broder border-2 border-white text-white"
+							className="min-h-[300px] p-10 flex justify-center items-center min-w-[300px] broder border-2 border-white   "
 						>
 							<p>{subject}</p>
 						</Link>

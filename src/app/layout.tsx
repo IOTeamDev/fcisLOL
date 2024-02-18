@@ -1,4 +1,6 @@
 import "@/src/styles/app.css";
+import { Toaster } from "react-hot-toast";
+import MyThemeProvider from "../components/MyThemeProvider";
 export default function RootLayout({
 	children,
 }: {
@@ -6,9 +8,14 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className="bg-slate-900 text-white">
+			<body
+				className=""
+				// className="bg-[#090909]   "
+			>
+				<Toaster position="top-right" reverseOrder />
+
+				<MyThemeProvider>{children}</MyThemeProvider>
 				<nav></nav>
-				{children}
 				<footer></footer>
 			</body>
 		</html>
