@@ -1,6 +1,6 @@
 import React from "react";
-import Card from "@/src/lib/components/Card";
-import LinkCard from "@/src/lib/components/LinkCard";
+import Card from "@/src/components/Card";
+import LinkCard from "@/src/components/LinkCard";
 
 const page = () => {
 	return (
