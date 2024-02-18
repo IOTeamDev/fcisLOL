@@ -23,15 +23,27 @@ const RegisterForm = () => {
 
 	return (
 		<form onSubmit={handleSubmit((data: any) => submit(data))}>
-			<div className="space-y-2 my-3">
-				<Label htmlFor="name">Your Name</Label>
-				<Input
-					id="name"
-					placeholder="Name"
-					{...register("name")}
-					required
-					type="text"
-				/>
+			<div className="my-3 flex gap-3 items-center justify-center">
+				<div>
+					<Label htmlFor="name">Your Name</Label>
+					<Input
+						id="name"
+						placeholder="Name"
+						{...register("name")}
+						required
+						type="text"
+					/>
+				</div>
+				<div>
+					<Label htmlFor="lastName">Last Name</Label>
+					<Input
+						id="lastName"
+						placeholder="Last Name"
+						{...register("lastName")}
+						required
+						type="text"
+					/>
+				</div>
 			</div>
 			<div className="space-y-2 my-3">
 				<Label htmlFor="email">Email</Label>

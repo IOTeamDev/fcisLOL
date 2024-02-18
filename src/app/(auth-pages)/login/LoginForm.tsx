@@ -27,7 +27,7 @@ export default function Component() {
 				toast.error("البيانات غير صحيحة");
 			} else {
 				toast.success("تم تسجيل الدخول بنجاح");
-				setTimeout(() => route.push("/#coursesSection"), 750);
+				setTimeout(() => route.push("/years"), 750);
 			}
 		} catch (error) {
 			toast.error("حدثت مشكلة أثناء تسجيل الدخول");

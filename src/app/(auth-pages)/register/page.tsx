@@ -5,7 +5,7 @@ import RegisterForm from "./RegisterForm";
 const page = () => {
 	return (
 		<div className="w-screen  p-4 h-screen flex justify-center items-center">
-			<div className=" border-2   max-h-fit rounded-md p-10 flex flex-col justify-center items-center">
+			<div className=" border-2   max-h-fit rounded-md p-5 m-3 flex flex-col justify-center items-center">
 				<div className="flex flex-col justify-between space-y-2 px-4">
 					<div className="flex-1 flex flex-col justify-center space-y-4">
 						<div className="space-y-2 text-center">

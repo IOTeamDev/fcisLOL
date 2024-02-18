@@ -1,6 +1,6 @@
 import "@/src/styles/app.css";
 import { Toaster } from "react-hot-toast";
-import MyThemeProvider from "../components/MyThemeProvider";
+import ThemeProviderWrapper from "../lib/ThemeProviderWrapper";
 export default function RootLayout({
 	children,
 }: {
@@ -14,7 +14,7 @@ export default function RootLayout({
 			>
 				<Toaster position="top-right" reverseOrder />
 
-				<MyThemeProvider>{children}</MyThemeProvider>
+				<ThemeProviderWrapper>{children}</ThemeProviderWrapper>
 				<nav></nav>
 				<footer></footer>
 			</body>
