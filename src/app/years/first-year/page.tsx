@@ -1,22 +1,16 @@
-import Link from "next/link";
+import LinkCard from "@/src/components/LinkCard";
 import React from "react";
 
 const page = () => {
 	return (
 		<div className="min-w-sreen h-screen flex justify-center items-center   ">
 			<div className="grid grid-cols-2 max-md:grid-cols-1  gap-5 ">
-				<Link
-					href="/years/first-year/1"
-					className="min-h-[300px] flex justify-center items-center min-w-[300px] broder border-2 border-white   "
-				>
+				<LinkCard href="/years/first-year/1">
 					<p>first semester </p>
-				</Link>
-				<Link
-					href="/years/first-year/2"
-					className="min-h-[300px] flex justify-center items-center min-w-[300px] broder border-2 border-white   "
-				>
+				</LinkCard>
+				<LinkCard href="/years/first-year/2">
 					<p>second semester </p>
-				</Link>
+				</LinkCard>
 			</div>
 		</div>
 	);

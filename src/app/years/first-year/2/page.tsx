@@ -1,4 +1,4 @@
-import Link from "next/link";
+import LinkCard from "@/src/components/LinkCard";
 import React from "react";
 
 function convertAndLowerCase(inputString: string): string {
@@ -17,17 +17,16 @@ const page = () => {
 	];
 
 	return (
-		<div className="min-w-sreen h-screen flex justify-center items-center   ">
+		<div className="min-w-sreen min-h-screen flex justify-center items-center  p-3 ">
 			<div className="grid grid-cols-4 max-xl:grid-cols-2 max-md:grid-cols-1  gap-5 ">
 				{avaliableSubjects.map((subject, index) => (
 					<>
-						<Link
+						<LinkCard
 							key={index}
 							href={`/first-year/1/${convertAndLowerCase(subject)}`}
-							className="min-h-[300px] p-10 flex justify-center items-center min-w-[300px] broder border-2 border-white   "
 						>
 							<p>{subject}</p>
-						</Link>
+						</LinkCard>
 					</>
 				))}
 			</div>
