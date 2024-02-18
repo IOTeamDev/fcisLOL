@@ -5,7 +5,7 @@ import ChangeTheme from "../app/ChangeTheme";
 export default function NavBar() {
   return (
     <nav className="w-full">
-      <div className=" flex justify-center items-center">
+      <div className="flex justify-center items-center">
         <div className="w-3/4 flex items-center justify-between h-14">
           <Link
             className="flex items-center gap-2 text-lg font-semibold"
@@ -16,11 +16,6 @@ export default function NavBar() {
           </Link>
 
           <div className="flex items-center gap-4">
-            {/* <Link href={"/register"}>
-              <Button size="sm" variant="outline">
-                Sign Up
-              </Button>
-            </Link> */}
             <Link href={"/login"}>
               <Button size="sm">Sign In</Button>
             </Link>
