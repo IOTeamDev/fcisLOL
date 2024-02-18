@@ -5,11 +5,10 @@ const TheCard = ({ children }: { children: any }) => {
     <div>
       <Card>
         <CardHeader>
-          <CardTitle>{children}</CardTitle>
+          <CardContent></CardContent>
+          <CardTitle className="flex justify-center items-center">{children}</CardTitle>
         </CardHeader>
-        <CardContent>
-          <p className="text-3xl">🔒</p>
-        </CardContent>
+        <CardContent></CardContent>
       </Card>
     </div>
   );
