@@ -1,12 +1,13 @@
 "use server";
 import prisma from "@/src/lib/PrismaClient";
 
-export const getSubjectVideos = async (subject: undefined | number) => {
+export const getSubjectById = async (subject: undefined | number) => {
 	try {
-		const videos = await prisma.video.findMany({
-			where: { subjectId: subject },
+		const Currentsubject = await prisma.subject.findFirst({
+			where: { id: subject },
+			include: { videos: true },
 		});
-		return videos;
+		return Currentsubject;
 	} catch (err) {
 		throw err;
 	}

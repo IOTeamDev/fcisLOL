@@ -18,7 +18,7 @@ const page = async ({ params }: { params: { semester: string } }) => {
 		);
 	}
 	return (
-		<div className="min-w-sreen min-h-[100vh-75px] flex justify-center items-center  p-3 ">
+		<div className="min-w-sreen min-h-[calc(100vh-75px)] flex justify-center items-center  p-3 ">
 			<div className="grid grid-cols-4 max-xl:grid-cols-2 max-md:grid-cols-1  gap-5 ">
 				{currentSemesterSubject.map((subject, index) => (
 					<>
