@@ -14,7 +14,7 @@ const RegisterForm = () => {
 	const submit = async (data: any) => {
 		try {
 			const user = await handleRegister(data);
-			toast.success("تم انشاء الحساب بنجاح سيتم التوجه لتسجيل الدخول");
+			toast.success("Your account has been registered successfully");
 			setTimeout(() => route.push("/login"), 1200);
 		} catch (err) {
 			throw err;

@@ -24,13 +24,13 @@ export default function Component() {
 			});
 
 			if (res?.error) {
-				toast.error("البيانات غير صحيحة");
+				toast.error("Invaild credentials");
 			} else {
-				toast.success("تم تسجيل الدخول بنجاح");
+				toast.success("Login successful");
 				setTimeout(() => route.push("/years"), 750);
 			}
 		} catch (error) {
-			toast.error("حدثت مشكلة أثناء تسجيل الدخول");
+			toast.error("An error has occurred");
 		}
 	};
 
