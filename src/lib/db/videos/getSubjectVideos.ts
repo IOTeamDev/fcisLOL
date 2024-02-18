@@ -11,3 +11,5 @@ export const getSubjectVideos = async (subject: undefined | number) => {
 		throw err;
 	}
 };
+
+prisma.$disconnect();

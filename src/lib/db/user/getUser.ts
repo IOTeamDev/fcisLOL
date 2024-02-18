@@ -34,3 +34,5 @@ export const getUserById = async (
 		throw err;
 	}
 };
+
+prisma.$disconnect();
