@@ -7,7 +7,7 @@ enum Status {
   REJECTED = "REJECTED",
 }
 
-export const getAllVideos = async (status?: Status) => {
+export const getVideos = async (status?: String) => {
   switch (status) {
     case Status.PENDING:
       try {
