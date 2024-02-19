@@ -2,10 +2,11 @@
 import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
 import VideoForm from "./VideoForm";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const AddVideo = ({ user, subjectId }: { user: any; subjectId: any }) => {
 	const [showModal, setShowModal] = useState(false);
+	const router = useRouter();
 	let handleAddButton;
 	if (user) {
 		handleAddButton = () => {
@@ -13,7 +14,7 @@ const AddVideo = ({ user, subjectId }: { user: any; subjectId: any }) => {
 		};
 	} else {
 		handleAddButton = () => {
-			redirect("/login");
+			router.push("/login");
 		};
 	}
 	return (
