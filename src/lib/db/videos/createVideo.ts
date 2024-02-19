@@ -10,6 +10,7 @@ export const getSubjectVideos = async (video: any) => {
 				description: video.description,
 				subjectId: video.subject,
 				userId: video.user,
+				status: "PENDING",
 			},
 		});
 		return videos;
