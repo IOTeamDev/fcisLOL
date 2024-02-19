@@ -2,40 +2,40 @@ import axios from "axios";
 import { z } from "zod";
 import { toast } from "react-hot-toast";
 
-interface user {
-	id: string;
-	name: string;
-	lastName: string;
-	phone: string;
-	parentPhone: string;
-	email: string;
-	password: string;
-	repassword: string;
+interface User {
+  id: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  parentPhone: string;
+  email: string;
+  password: string;
+  repassword: string;
 }
 
-const handleRegister = async (data: user) => {
-	const userSchema = z.object({
-		name: z.string(),
-		email: z.string().email("البريد الإكتروني غير مناسب"),
-		password: z.string().min(8, "كلمة المرور يجب ألا تقل عن 8 احرف"),
-	});
+const handleRegister = async (data: User) => {
+  const userSchema = z.object({
+    firsName: z.string(),
+		lastName: z.string(),
+    email: z.string().email("Invalid email"),
+    password: z.string().min(8, "Password must be at least 8 characters long"),
+  });
 
-	const vaildtaion = userSchema.safeParse(data);
-	if (!vaildtaion.success) {
-		toast.error(vaildtaion.error.errors[0].message);
-		throw new Error();
-	}
-	if (data.password === data.repassword) {
-		try {
-			const user = await axios.post("/api/register", data);
-			return user.data;
-		} catch (error) {
-			toast.error("هذا الحساب مسجل سابقاً");
-			throw error;
-		}
-	} else {
-		toast.error("كلمة المرور لا تطابق التأكيد");
-		throw new Error();
-	}
+  const validation = userSchema.safeParse(data);
+  if (!validation.success) {
+    toast.error(validation.error.errors[0].message);
+    throw new Error();
+  }
+  if (data.password === data.repassword) {
+    try {
+      await axios.post("/api/register", data);
+    } catch (error) {
+      toast.error("This account is already registered");
+      throw error;
+    }
+  } else {
+    toast.error("Password does not match the confirmation");
+    throw new Error();
+  }
 };
 export default handleRegister;

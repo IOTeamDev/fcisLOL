@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import RegisterForm from "./RegisterForm";
 import { Card } from "@/components/ui/card";
+import SquaresEffect from "@/src/components/SquaresEffect";
 
 const page = () => {
   return (
@@ -16,7 +17,7 @@ const page = () => {
             </div>
             <RegisterForm />
             <div className="flex max-sm:flex-col items-center justify-center py-2">
-              <span className="text-sm text-gray-500 dark:text-gray-400">
+              <span className="text-sm text-gray-500 dark:text-gray-400 z-10">
                 Already have an account?{" "}
                 <Link className="text-sm underline" href="/login">
                   Login
@@ -26,6 +27,7 @@ const page = () => {
           </div>
         </div>
       </Card>
+      <SquaresEffect />
     </div>
   );
 };

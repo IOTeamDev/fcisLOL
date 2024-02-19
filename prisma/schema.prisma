@@ -12,7 +12,7 @@ model User {
   lastName  String 
   email     String @unique
   password  String
-  role      Role
+  role      Role  @default(USER)
   videos    Video[]
 }
 

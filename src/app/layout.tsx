@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.className}>
       <body>
-        <Toaster position="top-right" reverseOrder />
+        <Toaster position="top-center" reverseOrder />
         <ThemeProviderWrapper>
           <NavBar />
           <main>{children}</main>
