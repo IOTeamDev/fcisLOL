@@ -27,7 +27,6 @@ const page = () => {
 					</div>
 				</div>
 			</Card>
-			<SquaresEffect />
 		</div>
 	);
 };
