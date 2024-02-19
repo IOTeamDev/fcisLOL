@@ -11,7 +11,6 @@ export const createVideo = async (video: any, userRole: string) => {
 			status = "PENDING";
 			break;
 	}
-
 	try {
 		const videos = await prisma.video.create({
 			data: {

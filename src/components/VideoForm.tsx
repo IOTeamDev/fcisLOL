@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { createVideo } from "../lib/db/videos/createVideo";
+import { useRouter } from "next/navigation";
 
 interface Props {
 	user: any;
@@ -21,6 +22,7 @@ interface Props {
 }
 
 const VideoForm = ({ user, subjectId, setShowModal }: Props) => {
+	const router = useRouter();
 	const { register, handleSubmit } = useForm();
 
 	const onSubmit = async (data: any) => {
@@ -37,6 +39,7 @@ const VideoForm = ({ user, subjectId, setShowModal }: Props) => {
 		}
 		toast.success("Video Submitted successfully updated");
 		setShowModal(false);
+		router.refresh();
 	};
 	return (
 		<div className=" p-5">

@@ -45,7 +45,7 @@ const page = async ({ params }: { params: { subject: string } }) => {
 					</div>
 				))}
 			</div>
-			<Button className="fixed left-10 bottom-10">+ Add Video</Button>
+			<AddVideo subjectId={currentSubject?.id} user={user} />
 		</div>
 	);
 };
