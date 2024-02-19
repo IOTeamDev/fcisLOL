@@ -6,6 +6,7 @@ import { useState } from "react";
 import AccountSettings from "./AccountSettings";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import VideoComponent from "./VideoComponent";
 
 export default function ProfilePage({ user }: { user: any }) {
 	const [showModal, setShowModal] = useState(false);
@@ -51,9 +52,9 @@ export default function ProfilePage({ user }: { user: any }) {
 					<div className="space-y-2">
 						<h2 className="text-2xl font-bold">Recent Videos</h2>
 						<ul className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-							{/* {userVideos.map((video: any) => (
-                <p>{video}</p>
-              ))} */}
+							{userVideos.map((video: any) => (
+								<VideoComponent video={video} />
+							))}
 						</ul>
 					</div>
 				</CardContent>
