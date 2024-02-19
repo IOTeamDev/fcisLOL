@@ -19,7 +19,7 @@ export const createVideo = async (video: any, userRole: string) => {
 				description: video.description,
 				subjectId: video.subject,
 				userId: video.user,
-				status,
+				status: "PENDING",
 			},
 		});
 		return videos;

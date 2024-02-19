@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 const page = async () => {
 	const session = await getServerSession();
 	if (session?.user) {
-		redirect("/years");
+		redirect("/levels");
 	}
 	return (
 		<div className="w-screen px-4 flex-grow flex justify-center items-center">

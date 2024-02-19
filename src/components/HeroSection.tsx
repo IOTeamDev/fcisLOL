@@ -41,7 +41,7 @@ export default function Hero() {
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <a
-                href="/years"
+                href="/levels"
                 className="w-full flex justify-center border-[#020817] border-2 py-2 rounded-xl bg-[#020817] text-white font-bold dark:bg-white dark:text-[#020817]"
               >
                 Start Now!
