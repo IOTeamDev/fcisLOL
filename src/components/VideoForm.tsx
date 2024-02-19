@@ -12,25 +12,34 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { updateUserData } from "../lib/db/user/updateUserProfile";
+import { createVideo } from "../lib/db/videos/createVideo";
+import { useRouter } from "next/navigation";
 
-export default function AccountSettings({
-	user,
-	setShowModal,
-}: {
+interface Props {
 	user: any;
+	subjectId: any;
 	setShowModal: any;
-}) {
+}
+
+const VideoForm = ({ user, subjectId, setShowModal }: Props) => {
+	const router = useRouter();
 	const { register, handleSubmit } = useForm();
 
 	const onSubmit = async (data: any) => {
+		const videoData = {
+			...data,
+			user: user.id,
+			subject: subjectId,
+		};
 		try {
-			await updateUserData(user.email, data);
+			await createVideo(videoData, user.rule);
 		} catch (error) {
 			toast.error("An error has occurred");
+			throw error;
 		}
-		toast.success("Successfully updated");
+		toast.success("Video Submitted successfully updated");
 		setShowModal(false);
+		router.refresh();
 	};
 	return (
 		<div className=" p-5">
@@ -41,55 +50,42 @@ export default function AccountSettings({
 				>
 					<Card className="w-full max-w-3xl">
 						<CardHeader>
-							<CardTitle>Account Settings</CardTitle>
+							<CardTitle>Add Video 🎥</CardTitle>
 							<CardDescription>
-								Update your account information. Changes will be reflected
-								across all platforms.
+								Welcome to our video upload form! We're excited to have you
+								share your content with us. Please fill out the following
+								details to upload your video:
 							</CardDescription>
 						</CardHeader>
 						<CardContent className="space-y-4">
 							<div className="space-y-2">
-								<Label htmlFor="name">Name</Label>
+								<Label htmlFor="url">URL</Label>
 								<Input
-									defaultValue={user.firstName}
-									id="name"
-									placeholder="Enter your name"
-									{...register("firstName")}
+									id="url"
+									placeholder="Enter Video URL"
+									{...register("url")}
+									required
 								/>
 								<div className="space-y-2">
-									<Label htmlFor="lastName">Last Name</Label>
+									<Label htmlFor="title">TITLE</Label>
 									<Input
-										defaultValue={user.lastName}
-										id="lastName"
-										placeholder="Enter your last name"
+										id="title"
+										placeholder="Enter Video Title"
 										type="text"
-										{...register("lastName")}
+										{...register("title")}
+										required
 									/>
 								</div>
 							</div>
 							<div className="space-y-2">
-								<Label htmlFor="email">Email</Label>
+								<Label htmlFor="description">DESCRIPTION</Label>
 								<Input
-									defaultValue={user.email}
-									id="email"
-									placeholder="Enter your email"
-									type="email"
-									{...register("email")}
+									id="description"
+									placeholder="Enter Video Description"
+									type="text"
+									{...register("description")}
+									required
 								/>
-							</div>
-							<div className="space-y-2">
-								<Label htmlFor="password">Password</Label>
-								<Input
-									defaultValue={user.password}
-									id="password"
-									placeholder="Enter your password"
-									type="password"
-									{...register("password")}
-								/>
-							</div>
-							<div className="space-y-2">
-								<Label>Profile Picture</Label>
-								<Input id="file" type="file" />
 							</div>
 						</CardContent>
 						<CardFooter className="flex gap-5">
@@ -103,4 +99,6 @@ export default function AccountSettings({
 			</section>
 		</div>
 	);
-}
+};
+
+export default VideoForm;

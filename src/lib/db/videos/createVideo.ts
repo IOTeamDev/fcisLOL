@@ -1,7 +1,16 @@
 "use server";
 import prisma from "@/src/lib/PrismaClient";
+import { Status } from "@prisma/client";
 
-export const getSubjectVideos = async (video: any) => {
+export const createVideo = async (video: any, userRole: string) => {
+	let status: Status;
+	switch (userRole) {
+		case "ADMIN" || "SUPREADMIN":
+			status = "PENDING";
+		default:
+			status = "PENDING";
+			break;
+	}
 	try {
 		const videos = await prisma.video.create({
 			data: {
@@ -10,6 +19,7 @@ export const getSubjectVideos = async (video: any) => {
 				description: video.description,
 				subjectId: video.subject,
 				userId: video.user,
+				status,
 			},
 		});
 		return videos;
