@@ -2,6 +2,7 @@ import AddVideo from "@/src/components/AddVideo";
 import VideoComponent from "@/src/components/VideoComponent";
 import { getSubjectById } from "@/src/lib/db/subjects/getSubjectById";
 import { getUserByEmail } from "@/src/lib/db/user/getUser";
+import { getVideos } from "@/src/lib/db/videos/getVideos";
 import { getServerSession } from "next-auth";
 import React from "react";
 
@@ -11,7 +12,8 @@ const page = async ({ params }: { params: { subject: string } }) => {
   let currentSubject: any;
   try {
     currentSubject = await getSubjectById(Number(params.subject));
-    if (currentSubject?.videos.length == 0) {
+    const approvedVideosCount = (await getVideos("APPROVED")).length;
+    if (approvedVideosCount == 0) {
       return (
         <>
           <div className="w-full flex-grow flex flex-col justify-center items-center">
@@ -43,11 +45,13 @@ const page = async ({ params }: { params: { subject: string } }) => {
       <div className="grid grid-cols-4 max-[1700px]:grid-cols-3 max-[1100px]:grid-cols-2 max-[780px]:grid-cols-1 gap-4">
         {currentSubject?.videos.map((video: any, index: any) => {
           video.subject = currentSubject;
-          return (
-            <div key={index}>
-              <VideoComponent video={video} />
-            </div>
-          );
+          if (video.status === "APPROVED") {
+            return (
+              <div key={index}>
+                <VideoComponent video={video} />
+              </div>
+            );
+          }
         })}
       </div>
     </div>

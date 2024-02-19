@@ -1,7 +1,7 @@
 import LinkCard from "@/src/components/LinkCard";
 import NotFound from "@/src/components/NotFound";
 import { getUserByEmail } from "@/src/lib/db/user/getUser";
-import { getAllPending } from "@/src/lib/db/videos/getAllPending";
+import { getVideos } from "@/src/lib/db/videos/getVideos";
 import { getServerSession } from "next-auth";
 
 const page = async () => {
@@ -9,7 +9,7 @@ const page = async () => {
   const user = await getUserByEmail(session?.user?.email);
   if (user?.role === "USER") return <NotFound />;
 
-  const pendingVideos = await getAllPending();
+  const pendingVideos = await getVideos("PENDING");
   return (
     <div className="min-w-sreen flex-grow flex justify-center items-center p-4">
       <div className="grid grid-cols-3 max-[550px]:grid-cols-1 gap-4 max-[550px]:gap-4">
