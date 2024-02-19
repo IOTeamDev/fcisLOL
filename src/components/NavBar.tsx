@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ChangeTheme from "./ChangeTheme";
+import { getServerSession } from "next-auth";
 
-export default function NavBar() {
+export default async function NavBar() {
+	const session = await getServerSession();
 	return (
 		<nav className="w-full p-2  z-10 border-b-2">
 			<div className="flex justify-center items-center">
@@ -16,9 +18,19 @@ export default function NavBar() {
 					</Link>
 
 					<div className="flex items-center gap-4">
-						<Link href={"/login"}>
-							<Button size="sm">Sign In</Button>
-						</Link>
+						{session?.user ? (
+							<>
+								<Link href={"/profile"}>
+									<Button size="sm">Profile</Button>
+								</Link>
+							</>
+						) : (
+							<>
+								<Link href={"/login"}>
+									<Button size="sm">Sign In</Button>
+								</Link>
+							</>
+						)}
 						<ChangeTheme />
 					</div>
 				</div>
