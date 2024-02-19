@@ -48,7 +48,7 @@ const page = async ({ params }: { params: { subject: string } }) => {
           video.subject = currentSubject;
           return (
             <div key={index}>
-              <VideoComponent video={video} />
+              <VideoComponent video={video} target={`/video/${video.id}`} />
             </div>
           );
         })}
