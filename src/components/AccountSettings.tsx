@@ -1,8 +1,3 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/445a2UTOZU6
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
 import {
 	CardTitle,
 	CardDescription,
@@ -15,9 +10,13 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-export default function AccountSettings() {
+export default function AccountSettings({
+	setShowModal,
+}: {
+	setShowModal: any;
+}) {
 	return (
-		<div className="px-40 py-20 max-md:px-20 max-md:py-10">
+		<div className="">
 			<section className="flex justify-center items-center">
 				<form className=" flex flex-col gap-10">
 					<Card className="w-full max-w-3xl">
@@ -50,8 +49,11 @@ export default function AccountSettings() {
 								<Input id="file" type="file" />
 							</div>
 						</CardContent>
-						<CardFooter>
+						<CardFooter className="flex gap-5">
 							<Button>Save</Button>
+							<Button variant="ghost" onClick={() => setShowModal(false)}>
+								Cancel
+							</Button>
 						</CardFooter>
 					</Card>
 				</form>

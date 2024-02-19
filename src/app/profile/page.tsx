@@ -13,7 +13,7 @@ const page = async () => {
 	}
 	const user = await getUserByEmail(session.user.email);
 	return (
-		<div className="flex-grow flex justify-center items-center">
+		<div className="flex-grow flex justify-center items-center relative">
 			<ProfilePage user={user} />
 		</div>
 	);
