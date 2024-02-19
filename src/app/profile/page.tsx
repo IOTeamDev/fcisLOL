@@ -14,7 +14,7 @@ const page = async () => {
 	const user = await getUserByEmail(session.user.email);
 	return (
 		<div className="flex-grow flex justify-center items-center">
-			<ProfilePage />
+			<ProfilePage user={user} />
 		</div>
 	);
 };

@@ -2,12 +2,16 @@ import React from "react";
 import LoginForm from "./LoginForm";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
-import SquaresEffect from "@/src/components/SquaresEffect";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
-const page = () => {
+const page = async () => {
+	const session = await getServerSession();
+	if (session?.user) {
+		redirect("/years");
+	}
 	return (
-		<div className="w-screen p-4 flex-grow flex justify-center items-center">
-			<SquaresEffect />
+		<div className="w-screen px-4 flex-grow flex justify-center items-center">
 			<Card>
 				<div className="max-h-fit rounded-md p-5 m-3 flex flex-col justify-center items-center">
 					<div className="flex flex-col justify-between space-y-2 px-4">
