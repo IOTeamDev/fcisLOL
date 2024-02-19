@@ -8,7 +8,7 @@ const page = async () => {
   const session = await getServerSession();
   const user = await getUserByEmail(session?.user?.email);
   if (user?.role === "USER") return <NotFound />;
-  console.log(user?.role);
+
   const pendingVideos = await getAllPending();
   return (
     <div className="min-w-sreen flex-grow flex justify-center items-center p-4">
