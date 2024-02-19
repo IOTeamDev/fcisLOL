@@ -3,7 +3,9 @@ import Link from "next/link";
 
 export default function VideoComponent({ video }: { video: any }) {
 	return (
-		<Link href={`/${video.subject.semesterId}/${video.subject.id}/${video.id}`}>
+		<Link
+			href={`/semesters/${video.subject.semesterId}/${video.subject.id}/${video.id}`}
+		>
 			<Card className="min-w-[300px] hover:scale-105 duration-100 ">
 				<div className="relative group overflow-hidden rounded-lg aspect-video">
 					<img
