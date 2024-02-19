@@ -22,17 +22,17 @@ enum Role {
   SUPERADMIN
 }
 
-model Year {
+model Level {
   id        Int       @id @default(autoincrement())
-  year      String    @unique
+  level      String    @unique
   semesters Semester[]
 }
 
 model Semester {
   id      Int      @id @default(autoincrement())
   number  Int
-  yearId  Int
-  year    Year    @relation(fields: [yearId], references: [id])
+  levelId  Int
+  level    Level    @relation(fields: [levelId], references: [id])
   subjects Subject[]
 }
 
