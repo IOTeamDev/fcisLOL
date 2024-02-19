@@ -14,7 +14,7 @@ const RegisterForm = () => {
 		try {
 			await handleRegister(data);
 			toast.success("Your account has been registered successfully");
-			setTimeout(() => route.push("/login"), 1200);
+			setTimeout(() => route.push("/login"), 500);
 		} catch (err) {
 			throw err;
 		}
