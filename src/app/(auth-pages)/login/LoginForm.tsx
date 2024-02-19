@@ -27,7 +27,7 @@ export default function Component() {
         toast.error("Invaild credentials");
       } else {
         toast.success("Login successful");
-        setTimeout(() => route.push("/years"), 750);
+        setTimeout(() => route.push("/levels"), 750);
       }
     } catch (error) {
       toast.error("An error has occurred");

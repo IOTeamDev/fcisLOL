@@ -11,3 +11,5 @@ export const getAllPending = async () => {
     throw err;
   }
 };
+
+prisma.$disconnect();

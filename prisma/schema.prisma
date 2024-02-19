@@ -24,13 +24,13 @@ enum Role {
 
 model Level {
   id        Int       @id @default(autoincrement())
-  level      String    @unique
+  level     String    @unique
   semesters Semester[]
 }
 
 model Semester {
-  id      Int      @id @default(autoincrement())
-  number  Int
+  id       Int      @id @default(autoincrement())
+  name     String
   levelId  Int
   level    Level    @relation(fields: [levelId], references: [id])
   subjects Subject[]
