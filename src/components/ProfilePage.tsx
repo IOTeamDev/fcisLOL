@@ -78,7 +78,7 @@ export default function ProfilePage({ user }: { user: any }) {
 			{showModal ? (
 				<div className="fixed top-0 left-0  z-20 min-w-screen min-h-screen">
 					<div className="fixed bg-black w-screen h-screen flex justify-center items-center dark:bg-slate-800 dark:bg-opacity-50 bg-opacity-15">
-						<AccountSettings setShowModal={setShowModal} />
+						<AccountSettings user={user} setShowModal={setShowModal} />
 					</div>
 				</div>
 			) : (
