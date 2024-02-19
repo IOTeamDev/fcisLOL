@@ -1,8 +1,14 @@
 "use server";
 import prisma from "@/src/lib/PrismaClient";
 import { Status } from "@prisma/client";
+import getVideoThumbnail from "../../getVideoThumbnail";
 
 export const createVideo = async (video: any, userRole: string) => {
+	try {
+		video.thumbnail = await getVideoThumbnail(video.url);
+	} catch (err) {
+		throw new Error();
+	}
 	let status: Status;
 	switch (userRole) {
 		case "ADMIN" || "SUPREADMIN":
@@ -17,6 +23,7 @@ export const createVideo = async (video: any, userRole: string) => {
 				url: video.url,
 				title: video.title,
 				description: video.description,
+				thumbnail: video.thumbnail,
 				subjectId: video.subject,
 				userId: video.user,
 				status,

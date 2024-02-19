@@ -34,7 +34,7 @@ const VideoForm = ({ user, subjectId, setShowModal }: Props) => {
 		try {
 			await createVideo(videoData, user.rule);
 		} catch (error) {
-			toast.error("An error has occurred");
+			toast.error("An error has occurred, Probably Invalid Video URL");
 			throw error;
 		}
 		toast.success("Video Submitted successfully updated");
