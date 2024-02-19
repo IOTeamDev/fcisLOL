@@ -17,7 +17,7 @@ const page = async ({ params }: { params: { semester: string } }) => {
 			<div className="grid grid-cols-4 max-xl:grid-cols-2 max-md:grid-cols-1  gap-5 ">
 				{currentSemesterSubject.map((subject, index) => (
 					<div key={index}>
-						<LinkCard href={`${params.semester}/subject/${subject.id}`}>
+						<LinkCard href={`/subject/${subject.id}`}>
 							<p>{subject.name}</p>
 						</LinkCard>
 					</div>
