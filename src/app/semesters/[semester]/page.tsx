@@ -16,11 +16,11 @@ const page = async ({ params }: { params: { semester: string } }) => {
 		<div className="flex-grow flex justify-center items-center  p-10 ">
 			<div className="grid grid-cols-4 max-xl:grid-cols-2 max-md:grid-cols-1  gap-5 ">
 				{currentSemesterSubject.map((subject, index) => (
-					<>
-						<LinkCard key={index} href={`${params.semester}/${subject.id}`}>
+					<div key={index}>
+						<LinkCard href={`${params.semester}/${subject.id}`}>
 							<p>{subject.name}</p>
 						</LinkCard>
-					</>
+					</div>
 				))}
 			</div>
 		</div>

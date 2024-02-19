@@ -9,7 +9,11 @@ export const getUserByEmail = async (
 		const user = await prisma.user.findFirst({
 			where: { email: email?.toString() },
 			include: {
-				videos: includeVideos,
+				videos: {
+					include: {
+						subject: includeVideos,
+					},
+				},
 			},
 		});
 		return user;
@@ -26,7 +30,11 @@ export const getUserById = async (
 		const user = await prisma.user.findFirst({
 			where: { id: id },
 			include: {
-				videos: includeVideos,
+				videos: {
+					include: {
+						subject: includeVideos,
+					},
+				},
 			},
 		});
 		return user;

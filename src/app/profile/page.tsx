@@ -1,5 +1,3 @@
-import { Input } from "@/components/ui/input";
-import AccountSettings from "@/src/components/AccountSettings";
 import NotFound from "@/src/components/NotFound";
 import ProfilePage from "@/src/components/ProfilePage";
 import { getUserByEmail } from "@/src/lib/db/user/getUser";
@@ -11,7 +9,7 @@ const page = async () => {
 	if (!session?.user) {
 		return <NotFound />;
 	}
-	const user = await getUserByEmail(session.user.email);
+	const user = await getUserByEmail(session.user.email, true);
 	return (
 		<div className="flex-grow flex justify-center items-center relative">
 			<ProfilePage user={user} />

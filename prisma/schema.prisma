@@ -6,13 +6,14 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
 model User {
-  id        Int @id @default(autoincrement())
-  firstName String 
-  lastName  String 
-  email     String @unique
+  id        Int     @id @default(autoincrement())
+  firstName String
+  lastName  String
+  email     String  @unique
   password  String
-  role      Role  @default(USER)
+  role      Role    @default(USER)
   videos    Video[]
 }
 
@@ -30,7 +31,7 @@ enum Role {
 // }
 
 model Semester {
-  id       Int      @id @default(autoincrement())
+  id       Int       @id @default(autoincrement())
   name     String
   levelId  Int
   // level    Level    @relation(fields: [levelId], references: [id])
@@ -38,22 +39,23 @@ model Semester {
 }
 
 model Subject {
-  id         Int        @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   name       String
   semesterId Int
-  semester   Semester  @relation(fields: [semesterId], references: [id])
+  semester   Semester @relation(fields: [semesterId], references: [id])
   videos     Video[]
 }
 
 model Video {
-  id          Int      @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   title       String
   url         String
+  thumbnail   String?
   description String
   subjectId   Int
-  subject     Subject  @relation(fields: [subjectId], references: [id])
+  subject     Subject @relation(fields: [subjectId], references: [id])
   userId      Int
-  publisher   User  @relation(fields: [userId], references: [id])
+  publisher   User    @relation(fields: [userId], references: [id])
   status      Status
 }
 

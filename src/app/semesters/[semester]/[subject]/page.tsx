@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
 import AddVideo from "@/src/components/AddVideo";
-import LinkCard from "@/src/components/LinkCard";
+import VideoComponent from "@/src/components/VideoComponent";
 import { getSubjectById } from "@/src/lib/db/subjects/getSubjectById";
 import { getUserByEmail } from "@/src/lib/db/user/getUser";
 import { getServerSession } from "next-auth";
@@ -9,7 +8,7 @@ import React from "react";
 const page = async ({ params }: { params: { subject: string } }) => {
 	const session = await getServerSession();
 	const user = await getUserByEmail(session?.user?.email);
-	let currentSubject;
+	let currentSubject: any;
 	try {
 		currentSubject = await getSubjectById(Number(params.subject));
 		if (currentSubject?.videos.length == 0) {
@@ -34,16 +33,17 @@ const page = async ({ params }: { params: { subject: string } }) => {
 		);
 	}
 	return (
-		<div className=" flex-grow p-20 flex flex-col gap-9 ">
+		<div className=" flex-grow flex mt-10 flex-col gap-9 items-center ">
 			<h2 className="text-3xl "> {currentSubject?.name} </h2>
-			<div className="grid grid-cols-4 max-xl:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-5 ">
-				{currentSubject?.videos.map((video, index) => (
-					<div key={index}>
-						<LinkCard href={`${params.subject}/${video.id}`}>
-							<p>{video.title}</p>
-						</LinkCard>
-					</div>
-				))}
+			<div className="grid grid-cols-4 max-[1700px]:grid-cols-3 max-[1100px]:grid-cols-2 max-[780px]:grid-cols-1 gap-4">
+				{currentSubject?.videos.map((video: any, index: any) => {
+					video.subject = currentSubject;
+					return (
+						<div key={index}>
+							<VideoComponent video={video} />
+						</div>
+					);
+				})}
 			</div>
 			<AddVideo subjectId={currentSubject?.id} user={user} />
 		</div>
