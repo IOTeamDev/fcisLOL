@@ -1,7 +1,5 @@
 import LinkCard from "@/src/components/LinkCard";
 import { getSemestersOfLevel } from "@/src/lib/db/videos/getSemestersOfLevel";
-import { parse } from "path";
-// make hashmap
 
 const page = async ({ params }: { params: { level: string } }) => {
   const levelSemesters = await getSemestersOfLevel(parseInt(params.level[0]));
