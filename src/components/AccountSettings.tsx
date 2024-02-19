@@ -16,7 +16,7 @@ export default function AccountSettings({
 	setShowModal: any;
 }) {
 	return (
-		<div className="">
+		<div className=" p-5">
 			<section className="flex justify-center items-center">
 				<form className=" flex flex-col gap-10">
 					<Card className="w-full max-w-3xl">
