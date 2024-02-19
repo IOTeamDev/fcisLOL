@@ -1,5 +1,5 @@
-import { Input } from "@/components/ui/input";
-import AccountSettings from "@/src/components/AccountSettings";
+// import { Input } from "@/components/ui/input";
+// import AccountSettings from "@/src/components/AccountSettings";
 import NotFound from "@/src/components/NotFound";
 import ProfilePage from "@/src/components/ProfilePage";
 import { getUserByEmail } from "@/src/lib/db/user/getUser";
