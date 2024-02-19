@@ -11,7 +11,10 @@ const LinkCard = ({
 	className?: string;
 }) => {
 	return (
-		<Link href={href} className="hover:scale-105 duration-200 cursor-pointer">
+		<Link
+			href={href}
+			className="hover:scale-105 max-md:text-xl duration-200 cursor-pointer"
+		>
 			<Card className={className}>
 				<CardContent></CardContent>
 				<CardHeader>

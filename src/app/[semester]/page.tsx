@@ -13,7 +13,7 @@ const page = async ({ params }: { params: { semester: string } }) => {
 		return <NotFound />;
 	}
 	return (
-		<div className="min-w-sreen min-h-screen flex justify-center items-center  p-3 ">
+		<div className="flex-grow flex justify-center items-center  p-10 ">
 			<div className="grid grid-cols-4 max-xl:grid-cols-2 max-md:grid-cols-1  gap-5 ">
 				{currentSemesterSubject.map((subject, index) => (
 					<>

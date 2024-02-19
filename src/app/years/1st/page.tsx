@@ -3,7 +3,7 @@ import React from "react";
 
 const page = () => {
 	return (
-		<div className="min-w-sreen h-screen flex justify-center items-center   ">
+		<div className="min-w-sreen flex-grow flex justify-center items-center   ">
 			<div className="grid grid-cols-1 gap-4">
 				<LinkCard
 					href="/1"
