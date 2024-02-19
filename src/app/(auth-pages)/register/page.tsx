@@ -2,7 +2,6 @@ import Link from "next/link";
 import React from "react";
 import RegisterForm from "./RegisterForm";
 import { Card } from "@/components/ui/card";
-import SquaresEffect from "@/src/components/SquaresEffect";
 
 const page = () => {
 	return (
