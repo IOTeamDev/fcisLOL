@@ -1,8 +1,8 @@
 import LinkCard from "@/src/components/LinkCard";
-import { getSemestersOfLevel } from "@/src/lib/db/videos/getSemestersOfLevel";
+import { getLevelSemesters } from "@/src/lib/db/videos/getLevelSemesters";
 
 const page = async ({ params }: { params: { level: string } }) => {
-	const levelSemesters = await getSemestersOfLevel(parseInt(params.level[0]));
+  const levelSemesters = await getLevelSemesters(parseInt(params.level[0]));
 
 	return (
 		<div className="min-w-sreen flex-grow flex justify-center items-center   ">

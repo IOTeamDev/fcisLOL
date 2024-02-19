@@ -12,3 +12,5 @@ export const updateUserData = async (email: string, data: any) => {
 		throw err;
 	}
 };
+
+prisma.$disconnect();

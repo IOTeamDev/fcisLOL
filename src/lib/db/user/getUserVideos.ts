@@ -1,16 +1,15 @@
 "use server";
 import prisma from "@/src/lib/PrismaClient";
 
-export const getSemestersOfLevel = async (level: number) => {
-
+export const getUserVideos = async (user: number) => {
   try {
-    const semesters = await prisma.semester.findMany({
+    const videos = await prisma.video.findMany({
       where: {
-        levelId: level,
+        userId: user,
       },
     });
 
-    return semesters;
+    return videos;
   } catch (err) {
     throw err;
   }

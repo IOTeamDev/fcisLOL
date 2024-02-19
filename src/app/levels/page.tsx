@@ -2,9 +2,6 @@ import React from "react";
 import TheCard from "@/src/components/TheCard";
 import LinkCard from "@/src/components/LinkCard";
 
-// make a hashmap of the levels and their respective links
-// "1st": "seme"
-
 const Page = () => {
   return (
     <div className="min-w-screen flex-grow flex justify-center items-center">

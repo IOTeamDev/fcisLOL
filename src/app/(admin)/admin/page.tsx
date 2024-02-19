@@ -1,8 +1,7 @@
-import { getAllPending } from "@/src/lib/db/videos/getAllPending";
+import { redirect } from "next/navigation";
 
-const page = async () => {
-	const pendingVideos = await getAllPending();
-	return <div>page</div>;
-};
+function page() {
+  redirect("/admin/pending");
+}
 
 export default page;
