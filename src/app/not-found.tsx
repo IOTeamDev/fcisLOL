@@ -1,11 +1,7 @@
-import React from "react";
+import NotFound from "../components/NotFound";
 
 const notFound = () => {
-  return (
-    <div className="w-full min-h-[calc(100vh-75px)] flex justify-center items-center">
-      <p className="text-4xl font-extrabold">404 POP LOL</p>
-    </div>
-  );
+  return <NotFound />;
 };
 
 export default notFound;

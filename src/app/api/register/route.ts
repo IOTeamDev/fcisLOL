@@ -7,10 +7,11 @@ export async function POST(request: NextRequest) {
 	try {
 		const newUser = await prisma.user.create({
 			data: {
-				name: res.name,
+				firstName: res.firstName,
 				lastName: res.lastName,
 				email: res.email,
 				password: res.password,
+				role: "USER",
 			},
 		});
 

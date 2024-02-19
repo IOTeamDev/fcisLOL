@@ -1,16 +1,25 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-const LinkCard = ({ children, href }: { children: any; href: string }) => {
+const LinkCard = ({
+	children,
+	href,
+	className,
+}: {
+	children: any;
+	href: string;
+	className?: string;
+}) => {
 	return (
-		<Link href={href} className="hover:scale-105 duration-200 cursor-pointer ">
-			<Card>
+		<Link href={href} className="hover:scale-105 duration-200 cursor-pointer">
+			<Card className={className}>
+				<CardContent></CardContent>
 				<CardHeader>
-					<CardTitle>{children}</CardTitle>
+					<CardTitle className="flex justify-center items-center">
+						{children}
+					</CardTitle>
 				</CardHeader>
-				<CardContent>
-					<p className="text-3xl">✨</p>
-				</CardContent>
+				<CardContent></CardContent>
 			</Card>
 		</Link>
 	);

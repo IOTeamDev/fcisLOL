@@ -7,12 +7,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 model User {
-  id Int @id @default(autoincrement())
-  name String 
-  lastName String 
-  email String @unique
-  password String
-  videos Video[]
+  id        Int @id @default(autoincrement())
+  firstName String 
+  lastName  String 
+  email     String @unique
+  password  String
+  role      Role  @default(USER)
+  videos    Video[]
+}
+
+enum Role {
+  USER
+  ADMIN
+  SUPERADMIN
 }
 
 model Year {
@@ -38,12 +45,19 @@ model Subject {
 }
 
 model Video {
-  id        Int      @id @default(autoincrement())
-  title     String
-  url       String
+  id          Int      @id @default(autoincrement())
+  title       String
+  url         String
   description String
-  subjectId Int
-  subject   Subject  @relation(fields: [subjectId], references: [id])
-  userId Int
+  subjectId   Int
+  subject     Subject  @relation(fields: [subjectId], references: [id])
+  userId      Int
   publisher   User  @relation(fields: [userId], references: [id])
+  status      Status
+}
+
+enum Status {
+  PENDING
+  APPROVED
+  REJECTED
 }

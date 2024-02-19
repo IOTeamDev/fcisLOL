@@ -16,14 +16,14 @@ import React from "react";
 // }
 
 export default function Hero() {
-	// const randomPhoto = getRandomPhoto();
+  // const randomPhoto = getRandomPhoto();
 
   return (
     <section className="w-full py-12 md:py-24 lg:py-32">
       <div className="container px-4 md:px-6">
         <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
           <img
-            alt="Image"
+            alt="lol"
             className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
             height="310"
             src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2t0NDFnYzV0d3h4OHl5MHc0aG90eXRyNHd6YmxydDd3cXlibnpoMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fhAwk4DnqNgw8/giphy.gif"
