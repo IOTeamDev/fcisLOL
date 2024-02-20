@@ -5,7 +5,12 @@ import { Button } from "@/src/components/ui/button";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-const AddVideoButton = ({ subjectId, user }: any) => {
+interface Props {
+	subjectId: number;
+	user: any;
+}
+
+const AddVideoButton = ({ subjectId, user }: Props) => {
 	const router = useRouter();
 	let handleAdd = () => {};
 	if (!user) {

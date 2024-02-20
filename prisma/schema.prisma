@@ -15,6 +15,7 @@ model User {
   password  String
   role      Role    @default(USER)
   videos    Video[]
+  subjects Subject[]
 }
 
 enum Role {
@@ -23,18 +24,11 @@ enum Role {
   SUPERADMIN
 }
 
-// Level model is not needed for now
-// model Level {
-//   id        Int       @id @default(autoincrement())
-//   level     String    @unique
-//   semesters Semester[]
-// }
 
 model Semester {
   id       Int       @id @default(autoincrement())
   name     String
   levelId  Int
-  // level    Level    @relation(fields: [levelId], references: [id])
   subjects Subject[]
 }
 
@@ -43,6 +37,7 @@ model Subject {
   name       String
   semesterId Int
   semester   Semester @relation(fields: [semesterId], references: [id])
+  Admins User[]
   videos     Video[]
 }
 

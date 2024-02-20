@@ -16,7 +16,7 @@ import { useRouter } from "next/navigation";
 
 interface Props {
 	user: any;
-	subjectId: any;
+	subjectId: number;
 }
 
 const VideoForm = ({ user, subjectId }: Props) => {
@@ -27,7 +27,7 @@ const VideoForm = ({ user, subjectId }: Props) => {
 		const videoData = {
 			...data,
 			user: user.id,
-			subject: subjectId,
+			subjectId: subjectId,
 		};
 		try {
 			await createVideo(videoData, user.role);

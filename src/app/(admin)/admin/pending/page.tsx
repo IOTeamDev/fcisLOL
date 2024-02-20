@@ -1,9 +1,15 @@
 import VideoComponent from "@/src/components/VideoComponent";
-import { getVideos } from "@/src/lib/db/videos/getVideos";
+import { getUserByEmail } from "@/src/lib/db/user/getUser";
+import { getPendingVidoesBySubject } from "@/src/lib/db/videos/getPendingVideos";
+import { getServerSession } from "next-auth";
 
 const page = async () => {
-	const pendingVideos = await getVideos("PENDING", 1);
-
+	const session = await getServerSession();
+	const user = await getUserByEmail(session?.user?.email, false, true);
+	const adminSubjectIds = user?.subjects.map((subject: any) => subject.id);
+	const pendingVideos = await getPendingVidoesBySubject(
+		adminSubjectIds as number[]
+	);
 	if (pendingVideos.length === 0) {
 		return (
 			<div className="h-screen flex-grow flex justify-center items-center">
