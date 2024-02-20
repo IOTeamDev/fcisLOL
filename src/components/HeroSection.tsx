@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 
 // use this to randomize the image
@@ -49,9 +48,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <Link href="#whoarewe" className="mt-12 opacity-50 font-light underline">
-        What are we?
-      </Link>
     </section>
   );
 }
