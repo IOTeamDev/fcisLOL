@@ -52,7 +52,7 @@ model Video {
   userId      Int
   publisher   User    @relation(fields: [userId], references: [id])
   status      Status
-  updatedAt   DateTime @updatedAt
+  updatedAt   DateTime? @updatedAt
 }
 
 enum Status {
