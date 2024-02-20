@@ -31,17 +31,22 @@ export default function ProfilePage({ user }: { user: any }) {
                 <h1 className="text-3xl font-bold max-lg:text-xl">
                   {user.firstName} {user.lastName}
                 </h1>
-                <div className="flex justify-between">
-                  <Button size="sm" onClick={() => setShowModal(true)}>
+                <div className="flex">
+                  <Button
+                    size="sm"
+                    onClick={() => setShowModal(true)}
+                    className="mx-1"
+                  >
                     Edit profile
                   </Button>
                   <Button
-                    variant={"destructive"}
+                    variant={"link"}
                     size="sm"
                     onClick={() => {
                       signOut();
                       router.push("/");
                     }}
+                    className="mx-1"
                   >
                     Log out
                   </Button>
