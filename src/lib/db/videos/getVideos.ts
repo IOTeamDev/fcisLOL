@@ -7,7 +7,7 @@ enum Status {
   REJECTED = "REJECTED",
 }
 
-export const getVideos = async (status?: String) => {
+export const getVideos = async (id?: number, status?: string) => {
   switch (status) {
     case Status.PENDING:
       try {
@@ -21,7 +21,7 @@ export const getVideos = async (status?: String) => {
     case Status.APPROVED:
       try {
         const videos = await prisma.video.findMany({
-          where: { status: "APPROVED" },
+          where: { status: "APPROVED", subjectId: id },
         });
         return videos;
       } catch (err) {
