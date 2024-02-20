@@ -12,15 +12,9 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { updateUserData } from "../lib/db/user/updateUserProfile";
+import { updateUserData } from "../../lib/db/user/updateUserProfile";
 
-export default function AccountSettings({
-	user,
-	setShowModal,
-}: {
-	user: any;
-	setShowModal: any;
-}) {
+export default function AccountSettings({ user }: { user: any }) {
 	const { register, handleSubmit } = useForm();
 
 	const onSubmit = async (data: any) => {
@@ -30,7 +24,6 @@ export default function AccountSettings({
 			toast.error("An error has occurred");
 		}
 		toast.success("Successfully updated");
-		setShowModal(false);
 	};
 	return (
 		<div className=" p-5">
@@ -87,16 +80,9 @@ export default function AccountSettings({
 									{...register("password")}
 								/>
 							</div>
-							<div className="space-y-2">
-								<Label>Profile Picture</Label>
-								<Input id="file" type="file" />
-							</div>
 						</CardContent>
 						<CardFooter className="flex gap-5">
 							<Button type="submit">Save</Button>
-							<Button variant="ghost" onClick={() => setShowModal(false)}>
-								Cancel
-							</Button>
 						</CardFooter>
 					</Card>
 				</form>

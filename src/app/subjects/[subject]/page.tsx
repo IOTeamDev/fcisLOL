@@ -1,5 +1,7 @@
-import AddVideo from "@/src/components/AddVideo";
+import { Button } from "@/components/ui/button";
+import Modal from "@/src/components/Modal";
 import VideoComponent from "@/src/components/VideoComponent";
+import VideoForm from "@/src/components/forms/VideoForm";
 import { getSubjectById } from "@/src/lib/db/subjects/getSubjectById";
 import { getUserByEmail } from "@/src/lib/db/user/getUser";
 import { getVideos } from "@/src/lib/db/videos/getVideos";
@@ -23,7 +25,12 @@ const page = async ({ params }: { params: { subject: string } }) => {
 							<p className="black:text-white text-center text-4xl font-extrabold p-4 max-md:text-xl opacity-70">
 								No Videos Here Yet 😓 <br /> Why Don't You Add One?! 😏
 							</p>
-							<AddVideo subjectId={currentSubject.id} user={user} />
+							<Modal
+								trigger={
+									<Button className="w-[200px]">+ Add Your Video</Button>
+								}
+								form={<VideoForm subjectId={params.subject} user={user} />}
+							/>
 						</div>
 					</div>
 				</>
@@ -42,7 +49,10 @@ const page = async ({ params }: { params: { subject: string } }) => {
 	return (
 		<div className="flex-grow flex mt-10 flex-col gap-9 items-center ">
 			<h2 className="text-5xl font-bold">{currentSubject?.name}</h2>
-			<AddVideo subjectId={currentSubject?.id} user={user} />
+			<Modal
+				trigger={<Button className="w-[200px]">+ Add Your Video</Button>}
+				form={<VideoForm subjectId={params.subject} user={user} />}
+			/>
 			<div className="grid p-10 grid-cols-4 max-[1700px]:grid-cols-3 max-[1100px]:grid-cols-2 max-[780px]:grid-cols-1 gap-4">
 				{approvedVideos.map((video: any, index: any) => {
 					video.subject = currentSubject;
