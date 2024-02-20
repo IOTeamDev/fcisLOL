@@ -26,14 +26,16 @@ const page = async ({ params }: { params: { subjectId: string } }) => {
 				<h2 className="text-5xl font-bold">{currentSubject?.name}</h2>
 				<AddVideoButton subjectId={Number(params.subjectId)} user={user} />
 				<div className="grid p-10 grid-cols-4 max-[1700px]:grid-cols-3 max-[1100px]:grid-cols-2 max-[780px]:grid-cols-1 gap-4">
-					{currentSubject?.videos.map((video: any, index: any) => {
-						video.subject = currentSubject;
-						return (
-							<div key={index}>
-								<VideoComponent video={video} target={`/video/${video.id}`} />
-							</div>
-						);
-					})}
+					{currentSubject?.videos
+						.sort((a: any, b: any) => b.updatedAt - a.updatedAt)
+						.map((video: any, index: any) => {
+							video.subject = currentSubject;
+							return (
+								<div key={index}>
+									<VideoComponent video={video} target={`/video/${video.id}`} />
+								</div>
+							);
+						})}
 				</div>
 			</div>
 		);
