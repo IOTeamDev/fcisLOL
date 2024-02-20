@@ -31,10 +31,11 @@ const VideoForm = ({ user, subjectId }: Props) => {
 		};
 		try {
 			await createVideo(videoData, user.role);
-			toast.success("Video added and is waiting for approval! 🎉");
+			// toast.success("Video added and is waiting for approval! 🎉");
 			setTimeout(() => {
-				router.refresh();
+				window.location.reload();
 			}, 1500);
+			toast.success("Video added and is waiting for approval! 🎉");
 		} catch (error) {
 			toast.error("An error has occurred, Probably invalid video URL");
 			throw error;
