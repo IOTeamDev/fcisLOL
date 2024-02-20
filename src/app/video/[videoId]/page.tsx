@@ -1,11 +1,14 @@
 import { Card } from "@/components/ui/card";
 import embedYTVideo from "@/src/components/embedYTVideo";
+import { getUserById } from "@/src/lib/db/user/getUser";
 import { getVideoById } from "@/src/lib/db/videos/getVideoById";
+import { Avatar } from "@/components/ui/avatar";
 import Link from "next/link";
 import React from "react";
 
 const page = async ({ params }: { params: { videoId: string } }) => {
   const video = await getVideoById(Number(params.videoId));
+  const user = await getUserById(video?.userId);
 
   if (video)
     return (
@@ -19,12 +22,17 @@ const page = async ({ params }: { params: { videoId: string } }) => {
               {video.description}
             </p>
           ) : null}
-          <Link
-            href={`/profile/${video.userId}`}
-            className="max-[700px]:m-4 underline"
-          >
-            author
-          </Link>
+          <div className="">
+            <Avatar className="h-7 w-7 flex">
+              <img alt="Avatar" height="96" src="/avatart.png" width="96" />
+            </Avatar>
+            <Link
+              href={`/profile/${video.userId}`}
+              className="max-[700px]:m-4 underline"
+            >
+              {user?.firstName} {user?.lastName}
+            </Link>
+          </div>
         </div>
         <Card className="w-4/5 h-4/5">{embedYTVideo(video?.url)}</Card>
       </div>
