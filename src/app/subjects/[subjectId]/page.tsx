@@ -6,12 +6,12 @@ import { getVideos } from "@/src/lib/db/videos/getVideos";
 import { getServerSession } from "next-auth";
 import React from "react";
 
-const page = async ({ params }: { params: { subject: string } }) => {
+const page = async ({ params }: { params: { subjectId: string } }) => {
 	const session = await getServerSession();
 	const user = await getUserByEmail(session?.user?.email);
 	let currentSubject: any;
 	try {
-		currentSubject = await getSubjectById(Number(params.subject));
+		currentSubject = await getSubjectById(Number(params.subjectId));
 		const approvedVideosCount = (await getVideos("APPROVED")).length;
 		if (approvedVideosCount == 0) {
 			return (
