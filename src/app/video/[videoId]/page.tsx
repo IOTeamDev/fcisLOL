@@ -2,7 +2,7 @@ import { Card } from "@/src/components/ui/card";
 import embedYTVideo from "@/src/components/embedYTVideo";
 import { getUserById } from "@/src/lib/db/user/getUser";
 import { getVideoById } from "@/src/lib/db/videos/getVideoById";
-import { Avatar } from "@/components/ui/avatar";
+import { Avatar } from "@/src/components/ui/avatar";
 import Link from "next/link";
 import React from "react";
 
