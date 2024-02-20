@@ -2,16 +2,16 @@ import { Card } from "@/src/components/ui/card";
 import embedYTVideo from "@/src/components/embedYTVideo";
 import { getUserById } from "@/src/lib/db/user/getUser";
 import { getVideoById } from "@/src/lib/db/videos/getVideoById";
-import { Avatar } from "@/src/components/ui/avatar";
 import Link from "next/link";
 import React from "react";
 import AvatarIcon from "@/src/components/ui/avatarIcon";
+import NotFound from "@/src/components/NotFound";
 
 const page = async ({ params }: { params: { videoId: string } }) => {
   const video = await getVideoById(Number(params.videoId));
-  const user = await getUserById(video?.userId);
 
-  if (video)
+  if (video) {
+    const user = await getUserById(video?.userId);
     return (
       <div className="w-full flex flex-col justify-center items-center p-8">
         <h1 className="text-4xl max-[1000px]:text-2xl max-[500px]:text-xl font-bold pb-4 text-center">
@@ -38,6 +38,9 @@ const page = async ({ params }: { params: { videoId: string } }) => {
         <Card className="w-4/5 h-4/5">{embedYTVideo(video?.url)}</Card>
       </div>
     );
+  } else {
+    return <NotFound />;
+  }
 };
 
 export default page;
