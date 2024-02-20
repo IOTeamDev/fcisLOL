@@ -55,7 +55,7 @@ export default function ProfilePage({ user }: { user: any }) {
             </div>
           </div>
           <div className="space-y-2">
-            <h2 className="text-2xl font-bold">Recent Videos</h2>
+            <h2 className="text-2xl font-bold m-4">Recent Videos</h2>
             <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               {userVideos.map((video: any) => (
                 <VideoComponent video={video} target={`/video/${video.id}`} />
