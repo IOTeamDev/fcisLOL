@@ -3,11 +3,11 @@ import NotFound from "@/src/components/NotFound";
 import { getSemesterSubjects } from "@/src/lib/db/subjects/getSemesterSubjects";
 import React from "react";
 
-const page = async ({ params }: { params: { semester: string } }) => {
+const page = async ({ params }: { params: { semesterId: string } }) => {
   let currentSemesterSubject: any[] = [];
   // check if current semester is in the database and  has subjects
   try {
-    currentSemesterSubject = await getSemesterSubjects(Number(params.semester));
+    currentSemesterSubject = await getSemesterSubjects(Number(params.semesterId));
     if (currentSemesterSubject.length == 0) throw new Error();
   } catch (err) {
     return <NotFound />;

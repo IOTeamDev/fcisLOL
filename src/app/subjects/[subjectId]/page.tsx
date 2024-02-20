@@ -8,12 +8,12 @@ import { getVideos } from "@/src/lib/db/videos/getVideos";
 import { getServerSession } from "next-auth";
 import React from "react";
 
-const page = async ({ params }: { params: { subject: string } }) => {
+const page = async ({ params }: { params: { subjectId: string } }) => {
 	const session = await getServerSession();
 	const user = await getUserByEmail(session?.user?.email);
 	let currentSubject: any;
 	try {
-		currentSubject = await getSubjectById(Number(params.subject));
+		currentSubject = await getSubjectById(Number(params.subjectId));
 		const approvedVideosCount = (await getVideos("APPROVED")).length;
 		if (approvedVideosCount == 0) {
 			return (
@@ -29,7 +29,7 @@ const page = async ({ params }: { params: { subject: string } }) => {
 								trigger={
 									<Button className="w-[200px]">+ Add Your Video</Button>
 								}
-								form={<VideoForm subjectId={params.subject} user={user} />}
+								form={<VideoForm subjectId={params.subjectId} user={user} />}
 							/>
 						</div>
 					</div>
@@ -51,7 +51,7 @@ const page = async ({ params }: { params: { subject: string } }) => {
 			<h2 className="text-5xl font-bold">{currentSubject?.name}</h2>
 			<Modal
 				trigger={<Button className="w-[200px]">+ Add Your Video</Button>}
-				form={<VideoForm subjectId={params.subject} user={user} />}
+				form={<VideoForm subjectId={params.subjectId} user={user} />}
 			/>
 			<div className="grid p-10 grid-cols-4 max-[1700px]:grid-cols-3 max-[1100px]:grid-cols-2 max-[780px]:grid-cols-1 gap-4">
 				{approvedVideos.map((video: any, index: any) => {
