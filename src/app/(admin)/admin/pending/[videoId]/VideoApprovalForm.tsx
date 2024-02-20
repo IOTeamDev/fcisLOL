@@ -62,9 +62,11 @@ const videoApprovalForm = ({ targetVideo }: { targetVideo: any }) => {
                 <p className="p-4 m-1">{targetVideo?.url}</p>
               </Link>
             </Card>
-            <Card className="w-full m-2">
-              <p className="p-4 m-1">{targetVideo?.description}</p>
-            </Card>
+            {targetVideo?.description ? (
+              <Card className="w-full m-2">
+                <p className="p-4 m-1">{targetVideo?.description}</p>
+              </Card>
+            ) : null}
 
             {/* Buttons */}
             <p className="cursor-pointer underline m-4">edit?</p>
