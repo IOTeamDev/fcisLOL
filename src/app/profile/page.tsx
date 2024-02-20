@@ -8,6 +8,7 @@ import AccountSettings from "@/src/components/forms/AccountSettings";
 import VideoComponent from "@/src/components/VideoComponent";
 import Modal from "@/src/components/Modal";
 import LogoutForm from "@/src/components/forms/LogoutForm";
+import AvatarIcon from "@/src/components/ui/avatarIcon";
 
 const page = async () => {
   const session = await getServerSession();
@@ -23,15 +24,7 @@ const page = async () => {
           <CardContent className="space-y-4">
             <div className="flex space-x-4 pb-10 border-b">
               <div className="flex items-center space-x-4 ">
-                <Avatar className="h-20 w-20">
-                  <img
-                    alt="Avatar"
-                    className="rounded-full aspect-square"
-                    height="96"
-                    src="/avatart.png"
-                    width="96"
-                  />
-                </Avatar>
+                <AvatarIcon width="96" height="96" />
                 <div className="space-y-1.5 max-sm:flex max-sm:flex-col max-sm:items-center">
                   <h1 className="text-3xl font-bold max-lg:text-xl">
                     {user?.firstName} {user?.lastName}
