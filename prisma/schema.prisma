@@ -51,7 +51,7 @@ model Video {
   title       String
   url         String
   thumbnail   String?
-  description String
+  description String?
   subjectId   Int
   subject     Subject @relation(fields: [subjectId], references: [id])
   userId      Int

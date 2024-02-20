@@ -1,5 +1,4 @@
 "use client";
-import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
@@ -8,7 +7,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 export default function Component() {
-	const route = useRouter();
+	const router = useRouter();
 
 	const { register, handleSubmit } = useForm();
 
@@ -28,8 +27,8 @@ export default function Component() {
 			} else {
 				toast.success("Login successful");
 				setTimeout(() => {
-					route.push("/levels");
-					route.refresh();
+					router.push("/levels");
+					router.refresh();
 				}, 750);
 			}
 		} catch (error) {

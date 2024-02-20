@@ -12,7 +12,8 @@ export const createVideo = async (video: any, userRole: string) => {
   let status: Status;
   switch (userRole) {
     case "ADMIN" || "SUPREADMIN":
-      status = "PENDING";
+      status = "APPROVED";
+      break;
     default:
       status = "PENDING";
       break;
@@ -22,11 +23,11 @@ export const createVideo = async (video: any, userRole: string) => {
       data: {
         url: video.url,
         title: video.title,
-        description: video.description,
+        description: video.description || null,
         thumbnail: video.thumbnail,
         subjectId: video.subject,
         userId: video.user,
-        status: "PENDING",
+        status: status,
       },
     });
     return videos;
