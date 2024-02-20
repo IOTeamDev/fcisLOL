@@ -5,7 +5,11 @@ export const getSubjectById = async (subject: undefined | number) => {
 	try {
 		const Currentsubject = await prisma.subject.findFirst({
 			where: { id: subject },
-			include: { videos: true },
+			include: {
+				videos: {
+					where: { status: "APPROVED" },
+				},
+			},
 		});
 		return Currentsubject;
 	} catch (err) {

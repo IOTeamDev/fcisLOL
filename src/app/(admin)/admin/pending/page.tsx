@@ -2,7 +2,7 @@ import VideoComponent from "@/src/components/VideoComponent";
 import { getVideos } from "@/src/lib/db/videos/getVideos";
 
 const page = async () => {
-	const pendingVideos = await getVideos("PENDING");
+	const pendingVideos = await getVideos("PENDING", 1);
 
 	if (pendingVideos.length === 0) {
 		return (
