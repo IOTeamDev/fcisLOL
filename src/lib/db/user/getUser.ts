@@ -3,13 +3,15 @@ import prisma from "@/src/lib/PrismaClient";
 
 export const getUserByEmail = async (
 	email: null | undefined | string,
-	includeVideos: boolean = false
+	includeVideos: boolean = false,
+	includeSubjects: boolean = false
 ) => {
 	try {
 		const user = await prisma.user.findFirst({
 			where: { email: email?.toString() },
 			include: {
 				videos: includeVideos,
+				subjects: includeSubjects,
 			},
 		});
 		return user;
@@ -23,7 +25,7 @@ export const getUserById = async (
 	includeVideos: boolean = false
 ) => {
 	try {
-		const user = await prisma.user.findFirst({
+		const user = await prisma.user.findUnique({
 			where: { id: id },
 			include: {
 				videos: {

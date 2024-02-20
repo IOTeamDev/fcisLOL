@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import handleRegister from "./handleregister";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Input } from "@/src/components/ui/input";
+import { Button } from "@/src/components/ui/button";
 
 const RegisterForm = () => {
 	const { register, handleSubmit } = useForm();

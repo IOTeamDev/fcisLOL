@@ -17,9 +17,9 @@ export default function Hero() {
   // const randomPhoto = getRandomPhoto();
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32">
+    <section className="w-full my-12 md:my-24 lg:my-32 flex flex-col items-center">
       <div className="container px-4 md:px-6">
-        <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
+        <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
           <img
             alt="lol"
             className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"

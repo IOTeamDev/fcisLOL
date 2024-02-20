@@ -1,21 +1,26 @@
-import { CardContent, Card } from "@/components/ui/card";
+import { CardContent, Card } from "@/src/components/ui/card";
 import Link from "next/link";
 
-export default function VideoComponent({ video }: { video: any }) {
+export default function VideoComponent({
+	video,
+	target,
+}: {
+	video: any;
+	target: string;
+}) {
 	return (
-		<Link href={`/video/${video.id}`}>
+		<Link href={target}>
 			<Card className="min-w-[300px] hover:scale-105 duration-100 ">
 				<div className="relative group overflow-hidden rounded-lg aspect-video">
 					<img
 						alt="Thumbnail"
-						className="transition-transform object-cover group-hover:scale-105"
+						className="w-full transition-transform object-cover group-hover:scale-105"
 						height={169}
 						src={video.thumbnail ?? "/thumbnail.webp"}
 						style={{
 							aspectRatio: "300/169",
 							objectFit: "cover",
 						}}
-						width={300}
 					/>
 				</div>
 				<CardContent className="p-4">
