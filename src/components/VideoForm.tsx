@@ -37,7 +37,7 @@ const VideoForm = ({ user, subjectId, setShowModal }: Props) => {
       toast.error("An error has occurred, Probably invalid video URL");
       throw error;
     }
-    toast.success("Video Submitted successfully updated");
+    toast.success("Video added and is waiting for approval! 🎉");
     setShowModal(false);
     setTimeout(() => {
       router.refresh();

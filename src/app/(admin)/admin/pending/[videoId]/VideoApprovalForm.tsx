@@ -18,6 +18,7 @@ const videoApprovalForm = ({ targetVideo }: { targetVideo: any }) => {
           toast.success("Video Approved Successfully!");
           setTimeout(() => {
             router.push("/admin/pending");
+            router.refresh();
           }, 1000);
           break;
         case "reject":
@@ -25,6 +26,7 @@ const videoApprovalForm = ({ targetVideo }: { targetVideo: any }) => {
           toast.success("Video Rejected Successfully!");
           setTimeout(() => {
             router.push("/admin/pending");
+            router.refresh();
           }, 1000);
           break;
         default:
