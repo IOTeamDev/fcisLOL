@@ -6,7 +6,7 @@ import { getServerSession } from "next-auth";
 export default async function NavBar() {
 	const session = await getServerSession();
 	return (
-		<nav className="w-full p-2  z-10 border-b-2">
+		<nav className="w-full p-2 z-10 border-b-2">
 			<div className="flex justify-center items-center">
 				<div className="w-3/4 flex items-center justify-between h-14">
 					<Link

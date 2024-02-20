@@ -6,23 +6,23 @@ import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "LOL",
+  title: "LOL",
 };
 
 export default function RootLayout({
-	children,
+  children,
 }: {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-	return (
-		<html lang="en" className={GeistSans.className}>
-			<body className="min-h-screen flex flex-col">
-				<Toaster position="top-center" reverseOrder />
-				<ThemeProviderWrapper>
-					<NavBar />
-					<main className="flex-grow flex flex-col">{children}</main>
-				</ThemeProviderWrapper>
-			</body>
-		</html>
-	);
+  return (
+    <html lang="en" className={GeistSans.className}>
+      <body className="min-h-screen flex flex-col">
+        <Toaster position="top-center" reverseOrder />
+        <ThemeProviderWrapper>
+          <NavBar />
+          <main className="flex-grow flex flex-col">{children}</main>
+        </ThemeProviderWrapper>
+      </body>
+    </html>
+  );
 }
