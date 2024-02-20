@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("POSTGRES_URL")
 }
 
 model User {
@@ -15,7 +15,7 @@ model User {
   password  String
   role      Role    @default(USER)
   videos    Video[]
-  subjects Subject[]
+  subjects  Subject[]
 }
 
 enum Role {
@@ -37,7 +37,7 @@ model Subject {
   name       String
   semesterId Int
   semester   Semester @relation(fields: [semesterId], references: [id])
-  Admins User[]
+  admins     User[]
   videos     Video[]
 }
 
@@ -52,6 +52,7 @@ model Video {
   userId      Int
   publisher   User    @relation(fields: [userId], references: [id])
   status      Status
+  updatedAt   DateTime @updatedAt
 }
 
 enum Status {

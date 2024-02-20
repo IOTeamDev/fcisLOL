@@ -7,7 +7,7 @@ async function layout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession();
   const user = await getUserByEmail(session?.user?.email);
 
-  if (user?.role === "USER") {
+  if (user?.role === "USER" || !user) {
     return <NotFound />;
   }
   return <div>{children}</div>;
