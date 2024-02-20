@@ -27,7 +27,7 @@ export const createVideo = async (video: any, userRole: string) => {
         thumbnail: video.thumbnail,
         subjectId: video.subject,
         userId: video.user,
-        status: "PENDING",
+        status: status,
       },
     });
     return videos;

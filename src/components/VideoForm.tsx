@@ -7,7 +7,6 @@ import {
   CardFooter,
   Card,
 } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
@@ -32,16 +31,16 @@ const VideoForm = ({ user, subjectId, setShowModal }: Props) => {
       subject: subjectId,
     };
     try {
-      await createVideo(videoData, user.rule);
+      await createVideo(videoData, user.role);
+      toast.success("Video added and is waiting for approval! 🎉");
+      setShowModal(false);
+      setTimeout(() => {
+        router.refresh();
+      }, 1500);
     } catch (error) {
       toast.error("An error has occurred, Probably invalid video URL");
       throw error;
     }
-    toast.success("Video added and is waiting for approval! 🎉");
-    setShowModal(false);
-    setTimeout(() => {
-      router.refresh();
-    }, 2000);
   };
   return (
     <div className="p-5">
