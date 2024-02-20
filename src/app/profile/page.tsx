@@ -1,7 +1,6 @@
 import NotFound from "@/src/components/NotFound";
 import { getUserByEmail } from "@/src/lib/db/user/getUser";
 import { getServerSession } from "next-auth";
-import { Avatar } from "@/src/components/ui/avatar";
 import { Button } from "@/src/components/ui/button";
 import { CardContent, Card } from "@/src/components/ui/card";
 import AccountSettings from "@/src/components/forms/AccountSettings";
@@ -24,7 +23,7 @@ const page = async () => {
           <CardContent className="space-y-4">
             <div className="flex space-x-4 pb-10 border-b">
               <div className="flex items-center space-x-4 ">
-                <AvatarIcon width="96" height="96" />
+                <AvatarIcon width="96" height="96"/>
                 <div className="space-y-1.5 max-sm:flex max-sm:flex-col max-sm:items-center">
                   <h1 className="text-3xl font-bold max-lg:text-xl">
                     {user?.firstName} {user?.lastName}
