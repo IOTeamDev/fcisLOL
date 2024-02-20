@@ -1,4 +1,3 @@
-import { Avatar } from "@/src/components/ui/avatar";
 import { Card, CardContent } from "@/src/components/ui/card";
 import NotFound from "@/src/components/NotFound";
 import VideoComponent from "@/src/components/VideoComponent";
