@@ -67,26 +67,26 @@ export default function AccountSettings({ user }: { user: any }) {
                 <Input
                   defaultValue={user.firstName}
                   id="name"
-                  placeholder="Enter your name"
+                  placeholder="First Name"
                   {...register("firstName")}
                 />
-                <div className="space-y-2">
-                  <Label htmlFor="lastName">Last Name</Label>
-                  <Input
-                    defaultValue={user.lastName}
-                    id="lastName"
-                    placeholder="Enter your last name"
-                    type="text"
-                    {...register("lastName")}
-                  />
-                </div>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="lastName">Last Name</Label>
+                <Input
+                  defaultValue={user.lastName}
+                  id="lastName"
+                  placeholder="Last Name"
+                  type="text"
+                  {...register("lastName")}
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
                   defaultValue={user.email}
                   id="email"
-                  placeholder="Enter your email"
+                  placeholder="Email"
                   type="email"
                   {...register("email")}
                 />
@@ -96,13 +96,13 @@ export default function AccountSettings({ user }: { user: any }) {
                 <Input
                   defaultValue={user.password}
                   id="password"
-                  placeholder="Enter your password"
+                  placeholder="Password"
                   type="password"
                   {...register("password")}
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="repassword">Re-Password</Label>
+                <Label htmlFor="repassword">Confirm Password</Label>
                 <Input
                   defaultValue={user.password}
                   id="repassword"
