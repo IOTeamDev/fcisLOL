@@ -14,14 +14,13 @@ export default function VideoComponent({
         <div className="relative group overflow-hidden rounded-lg aspect-video">
           <img
             alt="Thumbnail"
-            className="transition-transform object-cover group-hover:scale-105"
+            className="w-full transition-transform object-cover group-hover:scale-105"
             height={169}
             src={video.thumbnail ?? "/thumbnail.webp"}
             style={{
               aspectRatio: "300/169",
               objectFit: "cover",
             }}
-            width={300}
           />
         </div>
         <CardContent className="p-4">
