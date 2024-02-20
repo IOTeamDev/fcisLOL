@@ -13,17 +13,38 @@ import { Button } from "@/src/components/ui/button";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { updateUserData } from "../../lib/db/user/updateUserProfile";
+import { z } from "zod";
 
 export default function AccountSettings({ user }: { user: any }) {
 	const { register, handleSubmit } = useForm();
 
 	const onSubmit = async (data: any) => {
-		try {
-			await updateUserData(user.email, data);
-		} catch (error) {
-			toast.error("An error has occurred");
+		const userSchema = z.object({
+			firstName: z.string(),
+			lastName: z.string(),
+			email: z.string().email("Invalid email"),
+			password: z
+				.string()
+				.min(8, "Password must be at least 8 characters long"),
+		});
+
+		const validation = userSchema.safeParse(data);
+		if (!validation.success) {
+			toast.error(validation.error.errors[0].message);
+			throw new Error();
 		}
-		toast.success("Successfully updated");
+		if (data.password === data.repassword) {
+			try {
+				await updateUserData(user.email, data);
+			} catch (error) {
+				toast.error("Error");
+				throw error;
+			}
+		} else {
+			toast.error("Password does not match the confirmation");
+			throw new Error();
+		}
+		toast.success("Account updated successfully");
 	};
 	return (
 		<div className=" p-5">
@@ -78,6 +99,16 @@ export default function AccountSettings({ user }: { user: any }) {
 									placeholder="Enter your password"
 									type="password"
 									{...register("password")}
+								/>
+							</div>
+							<div className="space-y-2">
+								<Label htmlFor="repassword">Re-Password</Label>
+								<Input
+									defaultValue={user.password}
+									id="repassword"
+									placeholder="Confirm your password"
+									type="password"
+									{...register("repassword")}
 								/>
 							</div>
 						</CardContent>
