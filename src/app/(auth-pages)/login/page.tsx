@@ -1,7 +1,7 @@
 import React from "react";
 import LoginForm from "./LoginForm";
 import Link from "next/link";
-import { Card } from "@/components/ui/card";
+import { Card } from "@/src/components/ui/card";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 

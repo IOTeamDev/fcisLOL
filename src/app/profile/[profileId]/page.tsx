@@ -1,5 +1,5 @@
-import { Avatar } from "@/components/ui/avatar";
-import { Card, CardContent } from "@/components/ui/card";
+import { Avatar } from "@/src/components/ui/avatar";
+import { Card, CardContent } from "@/src/components/ui/card";
 import NotFound from "@/src/components/NotFound";
 import VideoComponent from "@/src/components/VideoComponent";
 import { getUserById } from "@/src/lib/db/user/getUser";

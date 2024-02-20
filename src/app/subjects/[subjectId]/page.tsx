@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/src/components/ui/button";
 import Modal from "@/src/components/Modal";
 import VideoComponent from "@/src/components/VideoComponent";
 import VideoForm from "@/src/components/forms/VideoForm";

@@ -6,9 +6,9 @@ import {
 	CardContent,
 	CardFooter,
 	Card,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+} from "@/src/components/ui/card";
+import { Input } from "@/src/components/ui/input";
+import { Button } from "@/src/components/ui/button";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { createVideo } from "../../lib/db/videos/createVideo";

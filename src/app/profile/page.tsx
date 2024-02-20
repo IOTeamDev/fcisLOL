@@ -1,9 +1,9 @@
 import NotFound from "@/src/components/NotFound";
 import { getUserByEmail } from "@/src/lib/db/user/getUser";
 import { getServerSession } from "next-auth";
-import { Avatar } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { CardContent, Card } from "@/components/ui/card";
+import { Avatar } from "@/src/components/ui/avatar";
+import { Button } from "@/src/components/ui/button";
+import { CardContent, Card } from "@/src/components/ui/card";
 import AccountSettings from "@/src/components/forms/AccountSettings";
 import VideoComponent from "@/src/components/VideoComponent";
 import Modal from "@/src/components/Modal";
