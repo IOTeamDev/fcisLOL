@@ -29,7 +29,7 @@ const videoPage = ({ currentSubject, user }: Props) => {
           video.subject = currentSubject;
           return (
             <div key={index}>
-              <VideoComponent video={video} target={`/video/${video.id}`} />
+              <VideoComponent video={video} target={`/videos/${video.id}`} />
             </div>
           );
         })}
