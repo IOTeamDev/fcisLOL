@@ -9,20 +9,21 @@ export default function Component() {
           <p className="opacity-50">
             This Masterpiece was created by{" "}
             <Link
+              href="https://github.com/ibrahim317/"
+              target="_blank"
+              className="underline"
+            >
+              Ibrahim AboElsoud
+            </Link>{" "}
+            & the AMAZING{" "}
+            <Link
               href="https://omarmhasan.bio.link"
               target="_blank"
               className="underline"
             >
               Omar M.Hasan
             </Link>{" "}
-            and a person called{" "}
-            <Link
-              href="https://github.com/ibrahim317/"
-              target="_blank"
-              className="underline"
-            >
-              Ibrahim AboElsoud
-            </Link>
+            . lol
           </p>
         </div>
         <div className="flex items-center justify-center space-x-4 text-sm md:order-1 md:space-x-6">
