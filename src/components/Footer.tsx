@@ -26,16 +26,22 @@ export default function Component() {
             . lol
           </p>
         </div>
-        <div className="flex items-center justify-center space-x-4 text-sm md:order-1 md:space-x-6">
-          <Link href="mailto:ioteam@proton.me">
+        <div className="flex items-center justify-center space-x-4 text-sm md:order-1 md:space-x-6 opacity-80">
+          <Link href="mailto:ioteam@proton.me" className="flex items-center">
             <Button className="rounded-full" size="sm" variant="ghost">
               <MailIcon className="w-4 h-4" />
             </Button>
+            : Email us
           </Link>
-          <Link href="https://github.com/IOTeamDev/fcisLOL" target="_blank">
+          <Link
+            href="https://github.com/IOTeamDev/fcisLOL"
+            target="_blank"
+            className="flex items-center"
+          >
             <Button className="rounded-full" size="sm" variant="ghost">
               <GithubIcon className="w-4 h-4" />
             </Button>
+            : See the code
           </Link>
         </div>
       </div>
