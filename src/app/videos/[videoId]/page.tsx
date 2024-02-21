@@ -1,5 +1,5 @@
 import { Card } from "@/src/components/ui/card";
-import embedYTVideo from "@/src/components/embedYTVideo";
+import EmbedYTVideo from "@/src/components/EmbedYTVideo";
 import { getUserById } from "@/src/lib/db/user/getUser";
 import { getVideoById } from "@/src/lib/db/videos/getVideoById";
 import Link from "next/link";
@@ -35,7 +35,7 @@ const page = async ({ params }: { params: { videoId: string } }) => {
 						</Link>
 					</div>
 				</div>
-				<Card className="w-4/5 h-4/5">{embedYTVideo(video?.url)}</Card>
+				<Card className="w-4/5 h-4/5">{EmbedYTVideo(video?.url)}</Card>
 			</div>
 		);
 	} else {

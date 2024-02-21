@@ -11,12 +11,12 @@ export default function FileComponent({
   return (
     <Link href={target}>
       <Card className="p-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 items-start">
+        <div>
           <div className="flex items-center space-x-4">
             <div className="flex items-center justify-center p-3 rounded-lg border w-12 h-12 bg-gray-100 dark:bg-gray-800">
               <FileIcon className="w-6 h-6 fill-muted" />
             </div>
-            <div className="grid gap-0.5 text-sm leading-none">
+            <div className="leading-none w-full">
               <div className="font-semibold">{file.title}</div>
             </div>
           </div>

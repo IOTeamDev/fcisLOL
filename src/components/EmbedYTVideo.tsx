@@ -1,4 +1,4 @@
-const embedYTVideo = (url: string) => {
+const EmbedYTVideo = (url: string) => {
   function getId(url: string) {
     const regExp =
       /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
@@ -20,4 +20,4 @@ const embedYTVideo = (url: string) => {
   );
 };
 
-export default embedYTVideo;
+export default EmbedYTVideo;
