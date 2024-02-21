@@ -54,7 +54,7 @@ const EditProfileButton = ({ user }: { user: any }) => {
 			<SheetTrigger asChild>
 				<Button>Edit Profile</Button>
 			</SheetTrigger>
-			<SheetContent side={"bottom"}>
+			<SheetContent side={"right"}>
 				<SheetHeader>
 					<SheetTitle>Account Settings</SheetTitle>
 					<SheetDescription>
