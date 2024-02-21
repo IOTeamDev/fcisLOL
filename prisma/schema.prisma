@@ -59,7 +59,7 @@ model Video {
 
 model File {
   id        Int      @id @default(autoincrement())
-  name      String
+  title      String
   url       String
   subjectId Int
   subject   Subject @relation(fields: [subjectId], references: [id])

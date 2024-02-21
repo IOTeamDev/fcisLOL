@@ -52,7 +52,7 @@ CREATE TABLE "Video" (
 -- CreateTable
 CREATE TABLE "File" (
     "id" SERIAL NOT NULL,
-    "name" TEXT NOT NULL,
+    "title" TEXT NOT NULL,
     "url" TEXT NOT NULL,
     "subjectId" INTEGER NOT NULL,
     "userId" INTEGER NOT NULL,
