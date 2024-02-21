@@ -6,6 +6,13 @@ interface Props {
 }
 
 const VideoPage = ({ pendingVideos }: Props) => {
+	if (pendingVideos.length === 0) {
+		return (
+			<div className="h-screen flex-grow flex justify-center items-center">
+				<h1 className="text-5xl font-bold">No Pending Videos</h1>
+			</div>
+		);
+	}
 	return (
 		<div className="flex-grow flex mt-10 flex-col gap-9 items-center ">
 			<h2 className="text-5xl font-bold">Pending Videos</h2>

@@ -2,6 +2,7 @@ import { getUserByEmail } from "@/src/lib/db/user/getUser";
 import { getPendingVidoesBySubject } from "@/src/lib/db/videos/getPendingVideos";
 import { getServerSession } from "next-auth";
 import PageSwitcher from "./PageSwitch";
+import { getPendingFilesBySubject } from "@/src/lib/db/files/getPenddingFiles";
 
 const page = async () => {
 	const session = await getServerSession();
@@ -10,15 +11,12 @@ const page = async () => {
 	const pendingVideos = await getPendingVidoesBySubject(
 		adminSubjectIds as number[]
 	);
-	if (pendingVideos.length === 0) {
-		return (
-			<div className="h-screen flex-grow flex justify-center items-center">
-				<h1 className="text-5xl font-bold">No Pending Videos</h1>
-			</div>
-		);
-	}
-
-	return <PageSwitcher pendingVideos={pendingVideos} />;
+	const pendingFiles = await getPendingFilesBySubject(
+		adminSubjectIds as number[]
+	);
+	return (
+		<PageSwitcher pendingFiles={pendingFiles} pendingVideos={pendingVideos} />
+	);
 };
 
 export default page;

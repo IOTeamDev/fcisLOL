@@ -11,9 +11,10 @@ import {
 
 interface Props {
 	pendingVideos: any;
+	pendingFiles: any;
 }
 
-const PageSwitcher = ({ pendingVideos }: Props) => {
+const PageSwitcher = ({ pendingVideos, pendingFiles }: Props) => {
 	return (
 		<Tabs defaultValue="videos">
 			<div className="flex items-center justify-center w-screen my-2">
@@ -26,7 +27,7 @@ const PageSwitcher = ({ pendingVideos }: Props) => {
 				<VideoPage pendingVideos={pendingVideos} />
 			</TabsContent>
 			<TabsContent value="files">
-				<FilePage />
+				<FilePage pendingFiles={pendingFiles} />
 			</TabsContent>
 		</Tabs>
 	);
