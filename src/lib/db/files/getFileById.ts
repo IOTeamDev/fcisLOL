@@ -3,7 +3,7 @@ import prisma from "@/src/lib/PrismaClient";
 
 export const getFileById = async (fileId: number) => {
 	try {
-		const file = await prisma.video.findUnique({
+		const file = await prisma.file.findUnique({
 			where: {
 				id: fileId,
 			},
