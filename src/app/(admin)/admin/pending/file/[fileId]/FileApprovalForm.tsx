@@ -4,8 +4,18 @@ import { Card } from "@/src/components/ui/card";
 import { updateFile } from "@/src/lib/db/files/updateFile";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useRef } from "react";
 import toast from "react-hot-toast";
+import {
+	Sheet,
+	SheetClose,
+	SheetContent,
+	SheetDescription,
+	SheetHeader,
+	SheetTitle,
+	SheetTrigger,
+} from "@/src/components/ui/sheet";
+import EditFileForm from "./EditFileForm";
 
 const fileApprovalForm = ({
 	targetFile,
@@ -15,29 +25,43 @@ const fileApprovalForm = ({
 	targetSubject: any;
 }) => {
 	const router = useRouter();
+	const buttonRef = useRef(null);
 
-	const handleClick = async (decision: string) => {
+	const handleApprove = async () => {
 		try {
-			switch (decision) {
-				case "approve":
-					await updateFile(targetFile.id, { status: "APPROVED" });
-					toast.success("file Approved Successfully!");
-					setTimeout(() => {
-						router.push("/admin/pending");
-						router.refresh();
-					}, 1000);
-					break;
-				case "reject":
-					await updateFile(targetFile.id, { status: "REJECTED" });
-					toast.success("file Rejected Successfully!");
-					setTimeout(() => {
-						router.push("/admin/pending");
-						router.refresh();
-					}, 1000);
-					break;
-				default:
-					break;
+			await updateFile(targetFile.id, { status: "APPROVED" });
+			toast.success("file Approved Successfully!");
+			setTimeout(() => {
+				router.push("/admin/pending");
+				router.refresh();
+			}, 1000);
+		} catch (error) {
+			toast.error("An error occurred. Please try again.");
+		}
+	};
+	const handleReject = async () => {
+		try {
+			await updateFile(targetFile.id, { status: "REJECTED" });
+			toast.success("file Rejected Successfully!");
+			setTimeout(() => {
+				router.push("/admin/pending");
+				router.refresh();
+			}, 1000);
+		} catch (error) {
+			toast.error("An error occurred. Please try again.");
+		}
+	};
+	const handleEditFile = async (data: any) => {
+		try {
+			await updateFile(targetFile.id, data);
+			toast.success("file Updated Successfully!");
+			if (buttonRef.current) {
+				const middle: any = buttonRef.current;
+				middle.click();
 			}
+			setTimeout(() => {
+				router.refresh();
+			}, 1000);
 		} catch (error) {
 			toast.error("An error occurred. Please try again.");
 		}
@@ -79,20 +103,40 @@ const fileApprovalForm = ({
 							<Card>
 								<p className="p-2">{targetSubject.name}</p>
 							</Card>
-							<p className="cursor-pointer underline p-2">Wrong subject?</p>
+							<Sheet>
+								<SheetTrigger asChild>
+									<Button>Edit File</Button>
+								</SheetTrigger>
+								<SheetContent side={"right"}>
+									<SheetHeader>
+										<SheetTitle>Edit File</SheetTitle>
+										<SheetDescription>
+											Edit File before approval
+										</SheetDescription>
+									</SheetHeader>
+									<EditFileForm
+										handleEditFile={handleEditFile}
+										file={targetFile}
+									/>
+									{/* <AccountSettings user={user}
+										handleEditAccount={handleEditAccount}
+									/> */}
+									<SheetClose ref={buttonRef}></SheetClose>
+								</SheetContent>
+							</Sheet>
 						</div>
 						<div className="w-full flex justify-around m-4">
 							<Button
 								className="w-1/2 mx-2"
 								variant={"default"}
-								onClick={() => handleClick("approve")}
+								onClick={async () => await handleApprove()}
 							>
 								Approve
 							</Button>
 							<Button
 								className="w-1/2 mx-2"
 								variant={"destructive"}
-								onClick={() => handleClick("reject")}
+								onClick={async () => await handleReject()}
 							>
 								Reject
 							</Button>

@@ -4,8 +4,18 @@ import { Card } from "@/src/components/ui/card";
 import { updateVideo } from "@/src/lib/db/videos/updateVideo";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useRef } from "react";
 import toast from "react-hot-toast";
+import {
+	Sheet,
+	SheetClose,
+	SheetContent,
+	SheetDescription,
+	SheetHeader,
+	SheetTitle,
+	SheetTrigger,
+} from "@/src/components/ui/sheet";
+import EditVideoForm from "./EditVideoForm";
 
 const videoApprovalForm = ({
 	targetVideo,
@@ -15,7 +25,7 @@ const videoApprovalForm = ({
 	targetSubject: any;
 }) => {
 	const router = useRouter();
-
+	const buttonRef = useRef(null);
 	const handleClick = async (decision: string) => {
 		try {
 			switch (decision) {
@@ -38,6 +48,21 @@ const videoApprovalForm = ({
 				default:
 					break;
 			}
+		} catch (error) {
+			toast.error("An error occurred. Please try again.");
+		}
+	};
+	const handleEditVideo = async (data: any) => {
+		try {
+			await updateVideo(targetVideo.id, data);
+			toast.success("video Updated Successfully!");
+			if (buttonRef.current) {
+				const middle: any = buttonRef.current;
+				middle.click();
+			}
+			setTimeout(() => {
+				router.refresh();
+			}, 1000);
 		} catch (error) {
 			toast.error("An error occurred. Please try again.");
 		}
@@ -79,7 +104,24 @@ const videoApprovalForm = ({
 							<Card>
 								<p className="p-2">{targetSubject.name}</p>
 							</Card>
-							<p className="cursor-pointer underline p-2">Wrong subject?</p>
+							<Sheet>
+								<SheetTrigger asChild>
+									<Button>Edit File</Button>
+								</SheetTrigger>
+								<SheetContent side={"right"}>
+									<SheetHeader>
+										<SheetTitle>Edit File</SheetTitle>
+										<SheetDescription>
+											Edit File before approval
+										</SheetDescription>
+									</SheetHeader>
+									<EditVideoForm
+										handleEditVideo={handleEditVideo}
+										video={targetVideo}
+									/>
+									<SheetClose ref={buttonRef}></SheetClose>
+								</SheetContent>
+							</Sheet>
 						</div>
 						<div className="w-full flex justify-around m-4">
 							<Button
