@@ -1,5 +1,5 @@
 import React from "react";
-import AddVideoButton from "../AddVideoButton";
+import AddButton from "../AddButton";
 import VideoComponent from "@/src/components/VideoComponent";
 interface Props {
   user: any;
@@ -15,7 +15,7 @@ const videoPage = ({ currentSubject, user }: Props) => {
           <p className="black:text-white text-center text-4xl font-extrabold p-4 max-md:text-xl opacity-70">
             No Videos Here Yet 😓 <br /> Why Don't You Add One?! 😏
           </p>
-          <AddVideoButton subjectId={currentSubject.id} user={user} />
+          <AddButton subjectId={currentSubject.id} user={user} type="Video" />
         </div>
       </div>
     );
@@ -23,7 +23,7 @@ const videoPage = ({ currentSubject, user }: Props) => {
   return (
     <div className="flex-grow flex mt-10 flex-col gap-9 items-center ">
       <h2 className="text-5xl font-bold">{currentSubject?.name}</h2>
-      <AddVideoButton subjectId={currentSubject.id} user={user} />
+      <AddButton subjectId={currentSubject.id} user={user} type="Video" />
       <div className="grid p-10 grid-cols-4 max-[1700px]:grid-cols-3 max-[1100px]:grid-cols-2 max-[780px]:grid-cols-1 gap-4">
         {currentSubject?.videos.map((video: any, index: any) => {
           video.subject = currentSubject;

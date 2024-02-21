@@ -16,7 +16,7 @@ export const createFile = async (file: any, userRole: string) => {
 		const files = await prisma.file.create({
 			data: {
 				url: file.url,
-				name: file.title,
+				title: file.title,
 				subjectId: file.subjectId,
 				userId: file.user,
 				status: status,
