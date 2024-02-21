@@ -1,7 +1,6 @@
 import NotFound from "@/src/components/NotFound";
 import { getUserByEmail } from "@/src/lib/db/user/getUser";
 import { getServerSession } from "next-auth";
-import { Button } from "@/src/components/ui/button";
 import { CardContent, Card } from "@/src/components/ui/card";
 import VideoComponent from "@/src/components/VideoComponent";
 import EditProfileButton from "./EditProfileButton";
