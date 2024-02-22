@@ -16,9 +16,9 @@ import {
   SheetTrigger,
 } from "@/src/components/ui/sheet";
 import EditFileForm from "./EditFileForm";
-import EmbedDriveFile from "@/src/components/EmbedDriveFile";
+import FileApprovalButton from "./FileApprovalButton";
 
-const fileApprovalForm = ({
+const FileApprovalForm = ({
   targetFile,
   targetSubject,
 }: {
@@ -76,7 +76,9 @@ const fileApprovalForm = ({
               <SheetContent side={"right"}>
                 <SheetHeader>
                   <SheetTitle className="text-center">Edit File</SheetTitle>
-                  <SheetDescription className="text-center">Edit File before approval</SheetDescription>
+                  <SheetDescription className="text-center">
+                    Edit File before approval
+                  </SheetDescription>
                 </SheetHeader>
                 <EditFileForm
                   handleEditFile={handleEditFile}
@@ -87,20 +89,8 @@ const fileApprovalForm = ({
             </Sheet>
           </div>
           <div className="w-full flex justify-around m-4">
-            <Button
-              className="w-1/2 mx-2"
-              variant={"default"}
-              onClick={async () => await handleApprove()}
-            >
-              Approve
-            </Button>
-            <Button
-              className="w-1/2 mx-2"
-              variant={"destructive"}
-              onClick={async () => await handleReject()}
-            >
-              Reject
-            </Button>
+            <FileApprovalButton decision="Approve" targetFile={targetFile} />
+            <FileApprovalButton decision="Reject" targetFile={targetFile} />
           </div>
         </div>
       </div>
@@ -108,4 +98,4 @@ const fileApprovalForm = ({
   );
 };
 
-export default fileApprovalForm;
+export default FileApprovalForm;

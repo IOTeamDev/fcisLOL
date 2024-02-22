@@ -13,7 +13,7 @@ import { useRouter } from "next/navigation";
 import { updateVideo } from "@/src/lib/db/videos/updateVideo";
 import toast from "react-hot-toast";
 
-const ApprovalButton = ({
+const VideoApprovalButton = ({
   decision,
   targetVideo,
 }: {
@@ -21,6 +21,7 @@ const ApprovalButton = ({
   targetVideo: any;
 }) => {
   const router = useRouter();
+  
   const handleClick = async (decision: any) => {
     try {
       switch (decision.decision) {
@@ -47,7 +48,7 @@ const ApprovalButton = ({
       toast.error("An error occurred. Please try again.");
     }
   };
-
+  
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -80,4 +81,4 @@ const ApprovalButton = ({
   );
 };
 
-export default ApprovalButton;
+export default VideoApprovalButton;
