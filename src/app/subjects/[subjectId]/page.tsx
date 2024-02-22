@@ -9,7 +9,6 @@ const page = async ({ params }: { params: { subjectId: string } }) => {
 	try {
 		const currentSubject = await getSubjectById(Number(params.subjectId));
 		if (!currentSubject) {
-			console.log("Subject not found");
 			throw new Error();
 		}
 		let user;
