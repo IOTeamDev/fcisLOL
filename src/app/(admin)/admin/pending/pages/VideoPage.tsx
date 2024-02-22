@@ -9,7 +9,9 @@ const VideoPage = ({ pendingVideos }: Props) => {
   if (pendingVideos.length === 0) {
     return (
       <div className="h-screen flex-grow flex justify-center items-center">
-        <h1 className="text-5xl font-bold">No Pending Videos</h1>
+        <h1 className="text-5xl font-bold -mt-40 max-[600px]:text-3xl">
+          No Pending Videos
+        </h1>
       </div>
     );
   }

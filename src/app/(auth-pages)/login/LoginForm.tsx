@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { signIn } from "next-auth/react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Component() {
   const router = useRouter();
@@ -61,8 +62,14 @@ export default function Component() {
               {...register("password")}
               required
               type="password"
-            />
-          </div>
+            />{" "}
+          </div>{" "}
+          <span className="text-sm text-gray-500 dark:text-gray-400 mb-10 text-center">
+            Forgot password?{" "}
+            <Link href="mailto:ioteam@proton.me" className="underline">
+              Contact us
+            </Link>
+          </span>
         </div>
         <Button className="w-full" type="submit">
           Login

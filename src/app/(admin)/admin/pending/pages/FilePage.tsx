@@ -5,7 +5,7 @@ const FilePage = ({ pendingFiles }: { pendingFiles: any }) => {
   if (pendingFiles.length === 0) {
     return (
       <div className="h-screen flex-grow flex justify-center items-center">
-        <h1 className="text-5xl font-bold">No Pending Files</h1>
+        <h1 className="text-5xl font-bold -mt-40 max-[600px]:text-3xl">No Pending Files</h1>
       </div>
     );
   }

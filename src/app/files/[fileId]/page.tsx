@@ -9,7 +9,6 @@ import Link from "next/link";
 const page = async ({ params }: { params: { fileId: string } }) => {
   const file = await getFileById(Number(params.fileId));
 
-  console.log(file);
   if (file) {
     const user = await getUserById(file?.userId);
     return (
