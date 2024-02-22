@@ -40,7 +40,7 @@ export default function Hero() {
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <a
                 href="/levels"
-                className="w-full flex justify-center border-[#020817] border-2 py-2 rounded-xl bg-[#020817] text-white font-bold dark:bg-white dark:text-[#020817]"
+                className="w-full flex justify-center border-[#020817] border-2 p-2 px-10 rounded-xl bg-[#020817] text-white font-bold dark:hover:bg-[#232425] dark:hover:text-white transition duration-300 hover:bg-white hover:text-[#020817] hover:border-[#020817] dark:bg-white dark:text-[#020817] dark:hover:border-white"
               >
                 Start Now!
               </a>
