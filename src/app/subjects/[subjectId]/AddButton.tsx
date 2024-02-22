@@ -92,7 +92,7 @@ const AddButton = ({ subjectId, user, type }: Props) => {
 			</SheetTrigger>
 			<SheetContent side={"bottom"}>
 				<SheetHeader>
-					<SheetTitle>
+					<SheetTitle className="text-center">
 						Add {type} {type === "Video" ? "📹" : "📒"}
 					</SheetTitle>
 					<SheetDescription>

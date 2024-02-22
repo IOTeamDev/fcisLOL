@@ -6,22 +6,26 @@ import NotFound from "@/src/components/NotFound";
 import { getSubjectById } from "@/src/lib/db/subjects/getSubjectById";
 
 const page = async ({ params }: { params: { videoId: string } }) => {
-	const targetVideo = await getVideoById(Number(params.videoId));
-	const targetSubject = await getSubjectById(targetVideo?.subjectId);
+  const targetVideo = await getVideoById(Number(params.videoId));
+  const targetSubject = await getSubjectById(targetVideo?.subjectId);
 
-	if (targetVideo?.status !== "PENDING") {
-		return <NotFound />;
-	}
+  if (targetVideo?.status !== "PENDING") {
+    return <NotFound />;
+  }
 
-	return (
-		<div className="w-screen px-4 flex-grow flex justify-center items-center">
-			<Card className="m-10">
-				<div className="max-h-fit rounded-md p-5 m-3 flex flex-col justify-center items-center">
-					<VideoApprovalForm targetVideo={targetVideo} targetSubject={targetSubject}/>
-				</div>
-			</Card>
-		</div>
-	);
+  return (
+    <div className="w-screen px-4 flex-grow flex justify-center items-center flex-col">
+      <h1 className="text-3xl font-bold mt-8 underline">Video Approval</h1>
+      <Card className="m-10">
+        <div className="max-h-fit rounded-md p-5 m-3 flex flex-col justify-center items-center">
+          <VideoApprovalForm
+            targetVideo={targetVideo}
+            targetSubject={targetSubject}
+          />
+        </div>
+      </Card>
+    </div>
+  );
 };
 
 export default page;

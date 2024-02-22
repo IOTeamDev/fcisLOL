@@ -22,7 +22,7 @@ const LogoutButton = () => {
       </SheetTrigger>
       <SheetContent side={"bottom"}>
         <SheetHeader>
-          <SheetTitle>Log out of your account? 🚪</SheetTitle>
+          <SheetTitle className="text-center">Log out of your account? 🚪</SheetTitle>
           <SheetDescription></SheetDescription>
         </SheetHeader>
         <div className="min-h-[50vh] flex justify-center items-center gap-4 flex-col">

@@ -56,7 +56,7 @@ const EditProfileButton = ({ user }: { user: any }) => {
 			</SheetTrigger>
 			<SheetContent side={"right"}>
 				<SheetHeader>
-					<SheetTitle>Account Settings</SheetTitle>
+					<SheetTitle className="text-center">Account Settings</SheetTitle>
 					<SheetDescription>
 						Update your account information 😀. Changes will be reflected across
 						all pages.

@@ -19,7 +19,7 @@ export default function EditFileForm({
 			className="flex mt-4 flex-col gap-10"
 		>
 			<div className="space-y-2">
-				<Label htmlFor="name">Name</Label>
+				<Label htmlFor="name">Url</Label>
 				<Input
 					defaultValue={file.url}
 					id="url"
@@ -29,7 +29,7 @@ export default function EditFileForm({
 				/>
 			</div>
 			<div className="space-y-2">
-				<Label htmlFor="title">Last Name</Label>
+				<Label htmlFor="title">Title</Label>
 				<Input
 					defaultValue={file.title}
 					id="title"
@@ -38,7 +38,7 @@ export default function EditFileForm({
 					{...register("title")}
 				/>
 			</div>
-			<Button type="submit"> Edit</Button>
+			<Button type="submit">Edit</Button>
 		</form>
 	);
 }

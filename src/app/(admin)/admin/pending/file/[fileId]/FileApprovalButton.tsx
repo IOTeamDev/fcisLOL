@@ -16,7 +16,7 @@ import {
   SheetTrigger,
 } from "@/src/components/ui/sheet";
 import EditVideoForm from "./EditVideoForm";
-import VideoApprovalButton from "./VideoApprovalButton";
+import VideoApprovalButto
 
 const videoApprovalForm = ({
   targetVideo,
