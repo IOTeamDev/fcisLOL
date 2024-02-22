@@ -1,23 +1,34 @@
-const EmbedYTVideo = (url: string) => {
-  function getId(url: string) {
-    const regExp =
-      /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-    const match = url.match(regExp);
+import React from "react";
 
-    return match && match[2].length === 11 ? match[2] : null;
-  }
+const YouTubeEmbed = ({ url }: { url: string }) => {
+	// Function to extract video ID from URL
+	const getVideoId = (url: string) => {
+		const regExp =
+			/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+		const match = url.match(regExp);
 
-  const videoId = getId(url);
+		if (match && match[2].length === 11) {
+			return match[2];
+		} else {
+			return "Invalid YouTube URL";
+		}
+	};
 
-  return (
-    <>
-      <iframe
-        className="w-full aspect-video"
-        src={"//www.youtube.com/embed/" + videoId}
-        allowFullScreen
-      ></iframe>
-    </>
-  );
+	const videoId = getVideoId(url);
+
+	return (
+		<div className="video-responsive">
+			<iframe
+				src={`https://www.youtube.com/embed/${videoId}`}
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				title="Embedded YouTube Video"
+				allowFullScreen
+				width="640"
+				height="360"
+				className="h-[70vh] w-[80vw] max-lg:h-[70vw] max-lg:w-[80vw]"
+			></iframe>
+		</div>
+	);
 };
 
-export default EmbedYTVideo;
+export default YouTubeEmbed;

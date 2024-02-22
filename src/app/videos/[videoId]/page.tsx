@@ -35,7 +35,9 @@ const page = async ({ params }: { params: { videoId: string } }) => {
 						</Link>
 					</div>
 				</div>
-				<Card className="w-4/5 h-4/5">{EmbedYTVideo(video?.url)}</Card>
+				<Card className="">
+					<EmbedYTVideo url={video.url} />
+				</Card>
 			</div>
 		);
 	} else {
