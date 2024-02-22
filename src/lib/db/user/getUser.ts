@@ -4,7 +4,8 @@ import prisma from "@/src/lib/PrismaClient";
 export const getUserByEmail = async (
 	email: null | undefined | string,
 	includeVideos: boolean = false,
-	includeSubjects: boolean = false
+	includeSubjects: boolean = false,
+	includeFiles: boolean = false
 ) => {
 	try {
 		const user = await prisma.user.findFirst({
@@ -12,6 +13,7 @@ export const getUserByEmail = async (
 			include: {
 				videos: includeVideos,
 				subjects: includeSubjects,
+				files: includeFiles,
 			},
 		});
 		return user;
@@ -22,7 +24,9 @@ export const getUserByEmail = async (
 
 export const getUserById = async (
 	id: undefined | number,
-	includeVideos: boolean = false
+	includeVideos: boolean = false,
+	includeSubjects: boolean = false,
+	includeFiles: boolean = false
 ) => {
 	try {
 		const user = await prisma.user.findUnique({
@@ -33,6 +37,8 @@ export const getUserById = async (
 						subject: includeVideos,
 					},
 				},
+				subjects: includeSubjects,
+				files: includeFiles,
 			},
 		});
 		return user;

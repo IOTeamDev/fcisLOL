@@ -2,17 +2,24 @@ import NotFound from "@/src/components/NotFound";
 import { getUserByEmail } from "@/src/lib/db/user/getUser";
 import { getServerSession } from "next-auth";
 import { CardContent, Card } from "@/src/components/ui/card";
-import VideoComponent from "@/src/components/VideoComponent";
 import EditProfileButton from "./EditProfileButton";
 import LogoutButton from "./LogoutButton";
 import AvatarIcon from "@/src/components/ui/avatarIcon";
+import {
+	Tabs,
+	TabsContent,
+	TabsList,
+	TabsTrigger,
+} from "@/src/components/ui/tabs";
+import UserVideos from "./UserVideos";
+import UserFiles from "./UserFiles";
 
 const page = async () => {
 	const session = await getServerSession();
 	if (!session?.user) {
 		return <NotFound />;
 	}
-	const user = await getUserByEmail(session.user.email, true);
+	const user = await getUserByEmail(session.user.email, true, false, true);
 	const userVideos = user?.videos;
 	return (
 		<div className="flex-grow flex justify-center items-center relative">
@@ -21,7 +28,7 @@ const page = async () => {
 					<CardContent className="space-y-4">
 						<div className="flex space-x-4 pb-10 border-b">
 							<div className="flex items-center space-x-4 ">
-              <AvatarIcon width="96" height="96"/>
+								<AvatarIcon width="96" height="96" />
 
 								<div className="space-y-1.5 max-sm:flex max-sm:flex-col max-sm:items-center">
 									<h1 className="text-3xl font-bold max-lg:text-xl">
@@ -34,14 +41,20 @@ const page = async () => {
 								</div>
 							</div>
 						</div>
-						<div className="space-y-2">
-							<h2 className="text-2xl font-bold">Recent Videos</h2>
-							<ul className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-								{userVideos?.map((video: any) => (
-									<VideoComponent video={video} target={`/videos/${video.id}`} />
-								))}
-							</ul>
-						</div>
+						<Tabs defaultValue="videos">
+							<div className="flex items-center justify-center w-full my-2">
+								<TabsList>
+									<TabsTrigger value="videos">Videos</TabsTrigger>
+									<TabsTrigger value="files">Files</TabsTrigger>
+								</TabsList>
+							</div>
+							<TabsContent value="videos">
+								<UserVideos userVideos={userVideos} />
+							</TabsContent>
+							<TabsContent value="files">
+								<UserFiles userFiles={user?.files} />
+							</TabsContent>
+						</Tabs>
 					</CardContent>
 				</Card>
 			</>
