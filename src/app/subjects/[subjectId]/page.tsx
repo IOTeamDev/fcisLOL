@@ -9,6 +9,7 @@ const page = async ({ params }: { params: { subjectId: string } }) => {
 	try {
 		const currentSubject = await getSubjectById(Number(params.subjectId));
 		if (!currentSubject) {
+			console.log("Subject not found");
 			throw new Error();
 		}
 		let user;
@@ -18,6 +19,7 @@ const page = async ({ params }: { params: { subjectId: string } }) => {
 		}
 		return <PageSwitcher user={user} currentSubject={currentSubject} />;
 	} catch (error) {
+		console.log(error);
 		return <NotFound />;
 	}
 };
