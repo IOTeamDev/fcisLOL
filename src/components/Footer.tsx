@@ -7,7 +7,7 @@ export default function Component() {
       <div className="container flex flex-col items-center gap-4 px-4 text-center md:gap-6 md:flex-row md:justify-between lg:px-6">
         <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-4 lg:order-2">
           <p className="opacity-50">
-            This Masterpiece was developed by{" "}
+            Crafted with passion by{" "}
             <Link
               href="https://github.com/ibrahim317/"
               target="_blank"
@@ -21,9 +21,9 @@ export default function Component() {
               target="_blank"
               className="underline"
             >
-              Omar M.Hasan
+              Omar M.Hasan,
             </Link>{" "}
-            in about 5 days .
+            FCIS Students 2027 .
           </p>
         </div>
         <div className="flex items-center justify-center space-x-4 text-sm md:order-1 md:space-x-6 opacity-80">

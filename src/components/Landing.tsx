@@ -52,8 +52,8 @@ const Landing = () => {
               Add Your Own!
             </h1>
             <p className="text-4xl max-[900px]:text-3xl max-[500px]:text-2xl font-bold max-[900px]:text-center">
-              Upload your own materials and share your good stuff with others!
-              📤
+              Contribute your own resources and spread knowledge with the
+              community! 📤
             </p>
           </div>
           <Image
