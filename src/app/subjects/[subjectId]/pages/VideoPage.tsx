@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import AddButton from "../AddButton";
 import VideoComponent from "@/src/components/VideoComponent";
 import { useState } from "react";
@@ -31,8 +30,11 @@ const videoPage = ({ currentSubject, user }: Props) => {
   const fuse = new Fuse(currentSubject.videos, {
     keys: ["title", "description"],
   });
+
   const searchResults = fuse.search(queryText);
-  const searchResultsData = searchResults.map((result) => result.item);
+  const FinalResultsData = queryText
+    ? searchResults.map((result) => result.item)
+    : currentSubject.videos;
 
   const handleChange = (e: any) => {
     setQueryText(e.target.value);
@@ -56,14 +58,8 @@ const videoPage = ({ currentSubject, user }: Props) => {
       {/* END SEARCH BAR */}
       <AddButton subjectId={currentSubject.id} user={user} type="Video" />
       <div className="grid p-10 grid-cols-4 max-[1700px]:grid-cols-3 max-[1100px]:grid-cols-2 max-[780px]:grid-cols-1 gap-4">
-        {(!(searchResultsData.length == 0)
-          ? searchResultsData.sort(
-              (a: any, b: any) => b.updatedAt - a.updatedAt
-            )
-          : currentSubject?.videos.sort(
-              (a: any, b: any) => b.updatedAt - a.updatedAt
-            )
-        ).map((video: any, index: any) => {
+        {FinalResultsData.sort((a: any, b: any) => b.updatedAt - a.updatedAt)
+        .map((video: any, index: any) => {
           video.subject = currentSubject;
           return (
             <div key={index}>
@@ -77,23 +73,3 @@ const videoPage = ({ currentSubject, user }: Props) => {
 };
 
 export default videoPage;
-
-function SearchIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="11" cy="11" r="8" />
-      <path d="m21 21-4.3-4.3" />
-    </svg>
-  );
-}
