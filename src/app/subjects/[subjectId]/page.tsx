@@ -18,7 +18,6 @@ const page = async ({ params }: { params: { subjectId: string } }) => {
 		}
 		return <PageSwitcher user={user} currentSubject={currentSubject} />;
 	} catch (error) {
-		console.log(error);
 		return <NotFound />;
 	}
 };

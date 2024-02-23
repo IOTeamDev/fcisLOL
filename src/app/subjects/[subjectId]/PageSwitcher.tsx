@@ -8,7 +8,6 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/src/components/ui/tabs";
-import SearchBar from "@/src/components/ui/search/SearchBar";
 
 interface Props {
   user: any;
@@ -19,7 +18,6 @@ const PageSwitcher = ({ user, currentSubject }: Props) => {
   return (
     <Tabs defaultValue="videos">
       <div className="flex flex-col items-center justify-center w-screen my-2">
-        <SearchBar />
         <TabsList>
           <TabsTrigger value="videos">Videos</TabsTrigger>
           <TabsTrigger value="files">Files</TabsTrigger>
