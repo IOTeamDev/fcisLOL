@@ -8,7 +8,7 @@ const Page = () => {
       <div className="grid grid-cols-2 gap-4 max-[1100px]:grid-cols-1">
         <LinkCard
           className="w-[500px] max-[550px]:w-[400px] max-[500px]:w-[300px]"
-          href="/levels/1st"
+          href="/levels/1"
         >
           Level 1
         </LinkCard>
