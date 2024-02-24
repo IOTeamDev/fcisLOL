@@ -1,7 +1,9 @@
+import Image from "next/image";
+
 const NotFound = () => {
 	return (
 		<div className="w-full flex-grow flex flex-col justify-center items-center">
-			<img
+			<Image
 				src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmdsaHUxYnlqc3R4NHMxNnEzbTNkM242OGlhNmNwODhtamgyeTl3cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gKsJUddjnpPG0/giphy.gif"
 				alt="_"
 				width={700}

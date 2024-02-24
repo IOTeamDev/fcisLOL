@@ -1,4 +1,5 @@
 import { CardContent, Card } from "@/src/components/ui/card";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function VideoComponent({
@@ -12,7 +13,7 @@ export default function VideoComponent({
 		<Link href={target}>
 			<Card className="min-w-[300px] hover:scale-105 duration-100 ">
 				<div className="relative group overflow-hidden rounded-lg aspect-video">
-					<img
+					<Image
 						alt="Thumbnail"
 						className="w-full transition-transform object-cover group-hover:scale-105"
 						height={169}

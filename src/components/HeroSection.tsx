@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { Button } from "./ui/button";
+import Image from "next/image";
 
 // use this to randomize the image
 // const photos = [
@@ -22,7 +23,7 @@ export default function Hero() {
 		<section className=" my-12 md:my-24 lg:my-32 flex flex-col items-center">
 			<div className="container px-4 md:px-6">
 				<div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
-					<img
+					<Image
 						alt="lol"
 						className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
 						height="310"

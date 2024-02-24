@@ -25,6 +25,7 @@ interface Props {
 
 const AddButton = ({ subjectId, user, type }: Props) => {
 	const router = useRouter();
+	const buttonRef = useRef(null);
 	if (!user) {
 		return (
 			<Button
@@ -36,8 +37,6 @@ const AddButton = ({ subjectId, user, type }: Props) => {
 			</Button>
 		);
 	}
-
-	const buttonRef = useRef(null);
 
 	let onSubmit: any;
 
@@ -96,9 +95,10 @@ const AddButton = ({ subjectId, user, type }: Props) => {
 						Add {type} {type === "Video" ? "📹" : "📒"}
 					</SheetTitle>
 					<SheetDescription>
-						🎉 Welcome to our {type} adding form ✨! We're excited to welcome
-						you to share your content with us. Kindly complete the following
-						details to upload your {type}: {type === "Video" ? "📹" : "📒"}
+						🎉 Welcome to our {type} adding form ✨! We&apos;re excited to
+						welcome you to share your content with us. Kindly complete the
+						following details to upload your {type}:{" "}
+						{type === "Video" ? "📹" : "📒"}
 					</SheetDescription>
 				</SheetHeader>
 				<AddForm handleFormSubmit={onSubmit} type={type} />
