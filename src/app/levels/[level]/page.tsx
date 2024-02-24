@@ -7,6 +7,7 @@ const page = async ({ params }: { params: { level: string } }) => {
   if (!accessableLevels.includes(Number(params.level))) {
     return <NotFound />;
   }
+
   const levelSemesters = await getLevelSemesters(Number(params.level));
 
   return (
