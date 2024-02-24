@@ -16,7 +16,8 @@ export default function VideoComponent({
 					<Image
 						alt="Thumbnail"
 						className="w-full transition-transform object-cover group-hover:scale-105"
-						height={169}
+						height={269}
+						width={200}
 						src={video.thumbnail ?? "/thumbnail.webp"}
 						style={{
 							aspectRatio: "300/169",

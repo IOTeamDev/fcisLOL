@@ -25,10 +25,9 @@ export default function Hero() {
 				<div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
 					<Image
 						alt="lol"
-						className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
-						height="310"
+						width={700}
+						height={600}
 						src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2t0NDFnYzV0d3h4OHl5MHc0aG90eXRyNHd6YmxydDd3cXlibnpoMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fhAwk4DnqNgw8/giphy.gif"
-						width="550"
 					/>
 					<div className="flex flex-col justify-center space-y-4">
 						<div className="space-y-2">
