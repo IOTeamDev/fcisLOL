@@ -1,7 +1,6 @@
 import NotFound from "@/src/components/NotFound";
 import { getUserByEmail } from "@/src/lib/db/user/getUser";
 import { getServerSession } from "next-auth";
-import { CardContent, Card } from "@/src/components/ui/card";
 import EditProfileButton from "./EditProfileButton";
 import LogoutButton from "./LogoutButton";
 import AvatarIcon from "@/src/components/ui/avatarIcon";
@@ -20,8 +19,10 @@ const page = async () => {
 		return <NotFound />;
 	}
 	const user = await getUserByEmail(session.user.email, true, false, true);
-	const userVideos = user?.videos?.filter(video => video.status === "APPROVED");
-	console.log(userVideos)
+	const userVideos = user?.videos?.filter(
+		(video) => video.status === "APPROVED"
+	);
+	console.log(userVideos);
 	return (
 		<div className="flex-grow flex flex-col  items-center relative p-10">
 			<div className="flex space-x-4 my-10 ">
