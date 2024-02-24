@@ -41,7 +41,7 @@ export default function Hero() {
 						</div>
 						<div className="flex flex-col gap-2 min-[400px]:flex-row">
 							<Button className="w-full">
-								<Link href={"/levels"} className="text-md">
+								<Link href={"/levels"} className="text-md w-full">
 									Start Now!
 								</Link>
 							</Button>
