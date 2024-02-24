@@ -9,7 +9,7 @@ import Link from "next/link";
 const page = async ({ params }: { params: { fileId: string } }) => {
 	const file = await getFileById(Number(params.fileId));
 
-	if (file) {
+	if (file && file.status === "APPROVED") {
 		const user = await getUserById(file?.userId);
 		return (
 			<div className="w-full flex flex-col justify-center items-center p-8">
