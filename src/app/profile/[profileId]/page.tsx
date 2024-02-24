@@ -12,7 +12,13 @@ import UserFiles from "../UserFiles";
 import UserVideos from "../UserVideos";
 
 const page = async ({ params }: { params: { profileId: string } }) => {
-  const user = await getUserById(Number(params.profileId), true, false, true);
+  let user;
+  try {
+    user = await getUserById(Number(params.profileId), true, false, true);
+  } catch (error) {
+    return <NotFound />;
+  }
+
   if (user) {
     const userVideos = user?.videos?.filter(
       (video) => video.status === "APPROVED"

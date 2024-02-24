@@ -1,8 +1,14 @@
 import LinkCard from "@/src/components/LinkCard";
+import NotFound from "@/src/components/NotFound";
 import { getLevelSemesters } from "@/src/lib/db/videos/getLevelSemesters";
 
 const page = async ({ params }: { params: { level: string } }) => {
-  const levelSemesters = await getLevelSemesters(parseInt(params.level[0]));
+  const accessableLevels = [1, 2, 3, 4];
+  if (!accessableLevels.includes(Number(params.level))) {
+    return <NotFound />;
+  }
+
+  const levelSemesters = await getLevelSemesters(Number(params.level));
 
   return (
     <div className="flex flex-col justify-center items-center">
