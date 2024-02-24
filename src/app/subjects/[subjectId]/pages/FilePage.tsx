@@ -45,7 +45,7 @@ const FilePage = ({ currentSubject, user }: Props) => {
     <div className="flex-grow flex mt-10 flex-col gap-9 items-center ">
       <h2 className="text-5xl font-bold">{currentSubject?.name}</h2>
       {/* SEARCH BAR */}
-      <div className="p-2 flex flex-col border-gray-500 border-2 rounded-xl">
+      <div className="p-2 flex flex-col border-4 border-stone-500 border-opacity-35 rounded-xl">
         <form className="flex w-full max-w-sm items-center space-x-2">
           <Input
             className="flex-1"

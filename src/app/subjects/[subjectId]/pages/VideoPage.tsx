@@ -44,7 +44,7 @@ const videoPage = ({ currentSubject, user }: Props) => {
     <div className="flex-grow flex mt-10 flex-col gap-9 items-center ">
       <h2 className="text-5xl font-bold">{currentSubject?.name}</h2>
       {/* SEARCH BAR */}
-      <div className="p-2 flex flex-col border-gray-500 border-2 rounded-xl">
+      <div className="p-2 flex flex-col border-4 border-stone-500 border-opacity-35 rounded-xl">
         <form className="flex w-full max-w-sm items-center space-x-2">
           <Input
             className="flex-1"
@@ -58,8 +58,9 @@ const videoPage = ({ currentSubject, user }: Props) => {
       {/* END SEARCH BAR */}
       <AddButton subjectId={currentSubject.id} user={user} type="Video" />
       <div className="grid p-10 grid-cols-4 max-[1700px]:grid-cols-3 max-[1100px]:grid-cols-2 max-[780px]:grid-cols-1 gap-4">
-        {FinalResultsData.sort((a: any, b: any) => b.updatedAt - a.updatedAt)
-        .map((video: any, index: any) => {
+        {FinalResultsData.sort(
+          (a: any, b: any) => b.updatedAt - a.updatedAt
+        ).map((video: any, index: any) => {
           video.subject = currentSubject;
           return (
             <div key={index}>

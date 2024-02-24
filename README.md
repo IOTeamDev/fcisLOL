@@ -27,20 +27,24 @@ check it out on `fcislol.vercel.app`
 ```shell
 git clone https://github.com/IOTeamDev/fcisLOL
 ```
-4. Navigate to the cloned directory:
+3. Navigate to the cloned directory:
 ```shell
 cd fcisLOL
 ```
-6. Install packages by executing:
+4. Create a new branch for your development work:
+```shell
+git checkout -b feature-branch
+```
+5. Install packages by executing:
 ```shell
 npm install
 ```
-8. Set up your development environment: Follow the instructions in `.env.example` (it's easier than tying your shoes!)
-9. Run the application: Execute
+6. Set up your development environment: Follow the instructions in `.env.example` (it's easier than tying your shoes!)
+7. Run the application: Execute
 ```shell
 npm run dev
 ``` 
-10. Access the application: Visit `localhost:3000` in your browser.
+8. Access the application: Visit `localhost:3000` in your browser.
 <hr/>
 
-**<p align="center">Don't forget to check out the code and contribute! Your skills are valuable!🎁✨**</p>
+**<p align="center">Don't forget to check out the code and contribute! Your skills are valuable!🎁✨</p>**
