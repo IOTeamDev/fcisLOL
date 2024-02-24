@@ -10,8 +10,7 @@ export const getVideoById = async (videoId: number) => {
     });
     return video;
   } catch (error) {
-    console.error(error);
-    return null;
+    throw new Error("Error fetching video by id");
   }
 };
 

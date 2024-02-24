@@ -22,7 +22,7 @@ const page = async () => {
 	const userVideos = user?.videos?.filter(
 		(video) => video.status === "APPROVED"
 	);
-	console.log(userVideos);
+
 	return (
 		<div className="flex-grow flex flex-col  items-center relative p-10">
 			<div className="flex space-x-4 my-10 ">

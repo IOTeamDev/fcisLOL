@@ -11,8 +11,8 @@ interface Props {
 }
 
 const FilePage = ({ currentSubject, user }: Props) => {
-	console.log(currentSubject);
-	const [queryText, setQueryText] = useState("");
+
+  const [queryText, setQueryText] = useState("");
 	if (currentSubject?.files.length == 0) {
 		return (
 			<div className="w-full h-screen flex-grow flex flex-col justify-center items-center">
