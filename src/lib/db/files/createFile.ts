@@ -5,7 +5,7 @@ import { Status } from "@prisma/client";
 export const createFile = async (file: any, userRole: string) => {
 	let status: Status;
 	switch (userRole) {
-		case "ADMIN" || "SUPREADMIN":
+		case "ADMIN" || "SUPERADMIN":
 			status = "APPROVED";
 			break;
 		default:
