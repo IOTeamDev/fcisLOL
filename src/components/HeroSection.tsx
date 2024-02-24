@@ -40,8 +40,10 @@ export default function Hero() {
 							</p>
 						</div>
 						<div className="flex flex-col gap-2 min-[400px]:flex-row">
-							<Button>
-								<Link href={"/levels"}>Start Now!</Link>
+							<Button className="w-full">
+								<Link href={"/levels"} className="text-md">
+									Start Now!
+								</Link>
 							</Button>
 						</div>
 					</div>
