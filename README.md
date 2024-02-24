@@ -24,10 +24,13 @@
 
 **Get Started in a Snap:**
 
-1. **Clone this repo:** `git clone https://github.com/IOTeamDev/fcisLOL`
-2. **Set up your dev environment:** Follow the instructions (it's easier than tying your shoes!) ➡️
-3. **Contribute!** Share your notes, videos, or code. Remember, **sharing is caring!** 
-4. **Join the discussions:** Help build a vibrant learning community! 
+1. **Make sure to have the requirements installed on your machine :** Nodejs, npm
+2. **Clone this repo:** `git clone https://github.com/IOTeamDevfcisLOL`
+3. **Install packages by running :** `npm install`
+5. **Set up your dev environment:** Follow the instructions (it's easier than tying your shoes!) ➡️
+6. **Run the applictaion:** `npm run dev`
+8. **Contribute!** Share your notes, videos, or code. Remember, **sharing is caring!** 
+9. **Join the discussions:** Help build a vibrant learning community! 
 
 **Remember:**
 
