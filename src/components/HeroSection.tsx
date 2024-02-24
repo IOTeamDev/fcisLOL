@@ -1,4 +1,6 @@
+import Link from "next/link";
 import React from "react";
+import { Button } from "./ui/button";
 
 // use this to randomize the image
 // const photos = [
@@ -14,40 +16,37 @@ import React from "react";
 // }
 
 export default function Hero() {
-  // const randomPhoto = getRandomPhoto();
+	// const randomPhoto = getRandomPhoto();
 
-  return (
-    <section className="w-full my-12 md:my-24 lg:my-32 flex flex-col items-center">
-      <div className="container px-4 md:px-6">
-        <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
-          <img
-            alt="lol"
-            className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
-            height="310"
-            src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2t0NDFnYzV0d3h4OHl5MHc0aG90eXRyNHd6YmxydDd3cXlibnpoMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fhAwk4DnqNgw8/giphy.gif"
-            width="550"
-          />
-          <div className="flex flex-col justify-center space-y-4">
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Simply Laughing at the Face of Subjects!
-              </h1>
-              <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Discover, Learn, Grow: Your Gateway to Endless Possibilities.
-                haha!
-              </p>
-            </div>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <a
-                href="/levels"
-                className="w-full flex justify-center border-[#020817] border-2 p-2 px-10 rounded-xl bg-[#020817] text-white font-bold dark:hover:bg-[#232425] dark:hover:text-white transition duration-300 hover:bg-white hover:text-[#020817] hover:border-[#020817] dark:bg-white dark:text-[#020817] dark:hover:border-white"
-              >
-                Start Now!
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+	return (
+		<section className=" my-12 md:my-24 lg:my-32 flex flex-col items-center">
+			<div className="container px-4 md:px-6">
+				<div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
+					<img
+						alt="lol"
+						className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
+						height="310"
+						src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2t0NDFnYzV0d3h4OHl5MHc0aG90eXRyNHd6YmxydDd3cXlibnpoMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fhAwk4DnqNgw8/giphy.gif"
+						width="550"
+					/>
+					<div className="flex flex-col justify-center space-y-4">
+						<div className="space-y-2">
+							<h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+								Simply Laughing at the Face of Subjects!
+							</h1>
+							<p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+								Discover, Learn, Grow: Your Gateway to Endless Possibilities.
+								haha!
+							</p>
+						</div>
+						<div className="flex flex-col gap-2 min-[400px]:flex-row">
+							<Button>
+								<Link href={"/levels"}>Start Now!</Link>
+							</Button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
 }
