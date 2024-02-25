@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 const Landing = () => {
   return (
@@ -56,6 +58,11 @@ const Landing = () => {
           </div>
           <Image src="/upload.svg" alt="We Got You!" width={700} height={600} />
         </section>
+        <Button className="">
+          <Link href={"/levels"} className="text-md w-full px-10">
+            Start Now!
+          </Link>
+        </Button>
       </div>
     </div>
   );
