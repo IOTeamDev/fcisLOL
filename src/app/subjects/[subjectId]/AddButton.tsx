@@ -55,7 +55,11 @@ const AddButton = ({ subjectId, user, type }: Props) => {
 						const middle: any = buttonRef.current;
 						middle.click();
 					}
-					toast.success("Video added and is waiting for approval! 🎉");
+					if (user.role === "USER") {
+						toast.success("Video added and is waiting for approval! 🎉");
+					} else {
+						toast.success("Video added successfully! 🎉");
+					}
 				} catch (error) {
 					toast.error("An error has occurred, Probably invalid video URL");
 					throw error;
@@ -75,7 +79,11 @@ const AddButton = ({ subjectId, user, type }: Props) => {
 						const middle: any = buttonRef.current;
 						middle.click();
 					}
-					toast.success("File added and is waiting for approval! 🎉");
+					if (user.role === "USER") {
+						toast.success("File added and is waiting for approval! 🎉");
+					} else {
+						toast.success("File added successfully! 🎉");
+					}
 				} catch (error) {
 					toast.error("An error has occurred, Probably invalid file URL");
 					throw error;
@@ -95,7 +103,11 @@ const AddButton = ({ subjectId, user, type }: Props) => {
 						const middle: any = buttonRef.current;
 						middle.click();
 					}
-					toast.success("File added and is waiting for approval! 🎉");
+					if (user.role === "USER") {
+						toast.success("File added and is waiting for approval! 🎉");
+					} else {
+						toast.success("File added successfully! 🎉");
+					}
 				} catch (error) {
 					toast.error("An error has occurred, Probably invalid file URL");
 					throw error;

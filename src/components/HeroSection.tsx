@@ -17,38 +17,39 @@ import Image from "next/image";
 // }
 
 export default function Hero() {
-	// const randomPhoto = getRandomPhoto();
+  // const randomPhoto = getRandomPhoto();
 
-	return (
-		<section className=" my-12 md:my-24 lg:my-32 flex flex-col items-center">
-			<div className="container px-4 md:px-6">
-				<div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
-					<Image
-						alt="lol"
-						width={700}
-						height={600}
-						src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2t0NDFnYzV0d3h4OHl5MHc0aG90eXRyNHd6YmxydDd3cXlibnpoMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fhAwk4DnqNgw8/giphy.gif"
-					/>
-					<div className="flex flex-col justify-center space-y-4">
-						<div className="space-y-2">
-							<h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-								Simply Laughing at the Face of Subjects!
-							</h1>
-							<p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-								Discover, Learn, Grow: Your Gateway to Endless Possibilities.
-								haha!
-							</p>
-						</div>
-						<div className="flex flex-col gap-2 min-[400px]:flex-row">
-							<Button className="w-full">
-								<Link href={"/levels"} className="text-md w-full">
-									Start Now!
-								</Link>
-							</Button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
+  return (
+    <section className=" my-12 md:my-24 lg:my-32 flex flex-col items-center">
+      <div className="container px-4 md:px-6">
+        <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
+          <Image
+            alt="lol"
+            width={700}
+            height={600}
+            src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2t0NDFnYzV0d3h4OHl5MHc0aG90eXRyNHd6YmxydDd3cXlibnpoMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fhAwk4DnqNgw8/giphy.gif"
+            className="rounded-lg shadow-lg md:rounded-xl md:shadow-xl lg:rounded-2xl lg:shadow-2xl xl:rounded-3xl xl:shadow-3xl"
+          />
+          <div className="flex flex-col justify-center space-y-4">
+            <div className="space-y-2">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                Simply Laughing at the Face of Subjects!
+              </h1>
+              <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                Discover, Learn, Grow: Your Gateway to Endless Possibilities.
+                haha!
+              </p>
+            </div>
+            <div className="flex flex-col gap-2 min-[400px]:flex-row">
+              <Button className="w-full">
+                <Link href={"/levels"} className="text-md w-full">
+                  Start Now!
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

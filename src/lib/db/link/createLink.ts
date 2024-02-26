@@ -5,7 +5,8 @@ import { Status } from "@prisma/client";
 export const createLink = async (link: any, userRole: string) => {
 	let status: Status;
 	switch (userRole) {
-		case "ADMIN" || "SUPERADMIN":
+		case "ADMIN":
+		case "SUPERADMIN":
 			status = "APPROVED";
 			break;
 		default:
@@ -17,6 +18,7 @@ export const createLink = async (link: any, userRole: string) => {
 			data: {
 				url: link.url,
 				title: link.title,
+				description: link.description,
 				subjectId: link.subjectId,
 				userId: link.user,
 				status: status,
