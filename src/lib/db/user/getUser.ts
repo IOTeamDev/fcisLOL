@@ -5,7 +5,8 @@ export const getUserByEmail = async (
 	email: null | undefined | string,
 	includeVideos: boolean = false,
 	includeSubjects: boolean = false,
-	includeFiles: boolean = false
+	includeFiles: boolean = false,
+	includeLinks: boolean = false
 ) => {
 	try {
 		const user = await prisma.user.findFirst({
@@ -14,6 +15,7 @@ export const getUserByEmail = async (
 				videos: includeVideos,
 				subjects: includeSubjects,
 				files: includeFiles,
+				links: includeLinks,
 			},
 		});
 		return user;

@@ -8,8 +8,8 @@ import {
 	TabsList,
 	TabsTrigger,
 } from "@/src/components/ui/tabs";
-import UserFiles from "../UserFiles";
-import UserVideos from "../UserVideos";
+import UserFiles from "../pages/UserFiles";
+import UserVideos from "../pages/UserVideos";
 
 const page = async ({ params }: { params: { profileId: string } }) => {
 	let user;

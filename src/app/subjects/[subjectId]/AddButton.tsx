@@ -16,11 +16,12 @@ import { createVideo } from "@/src/lib/db/videos/createVideo";
 import { createFile } from "@/src/lib/db/files/createFile";
 import toast from "react-hot-toast";
 import AddForm from "@/src/components/forms/AddForm";
+import { createLink } from "@/src/lib/db/link/createLink";
 
 interface Props {
 	subjectId: number;
 	user: any;
-	type: "Video" | "File";
+	type: "Video" | "File" | "Link";
 }
 
 const AddButton = ({ subjectId, user, type }: Props) => {
@@ -70,6 +71,26 @@ const AddButton = ({ subjectId, user, type }: Props) => {
 				};
 				try {
 					await createFile(fileData, user.role);
+					if (buttonRef.current) {
+						const middle: any = buttonRef.current;
+						middle.click();
+					}
+					toast.success("File added and is waiting for approval! 🎉");
+				} catch (error) {
+					toast.error("An error has occurred, Probably invalid file URL");
+					throw error;
+				}
+			};
+			break;
+		case "Link":
+			onSubmit = async (data: any) => {
+				const LinkData = {
+					...data,
+					user: user.id,
+					subjectId: subjectId,
+				};
+				try {
+					await createLink(LinkData, user.role);
 					if (buttonRef.current) {
 						const middle: any = buttonRef.current;
 						middle.click();

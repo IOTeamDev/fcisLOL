@@ -17,6 +17,7 @@ model User {
   videos    Video[]
   subjects  Subject[]
   files     File[]
+  links    Link[]
 }
 
 enum Role {
@@ -41,6 +42,7 @@ model Subject {
   admins     User[]
   videos     Video[]
   files      File[]
+  links      Link[]
 }
 
 model Video {
@@ -58,6 +60,18 @@ model Video {
 }
 
 model File {
+  id        Int      @id @default(autoincrement())
+  title     String
+  description String?
+  url       String
+  subjectId Int
+  subject   Subject @relation(fields: [subjectId], references: [id])
+  userId    Int
+  publisher User    @relation(fields: [userId], references: [id])
+  status    Status
+  updatedAt DateTime? @updatedAt
+}
+model Link {
   id        Int      @id @default(autoincrement())
   title     String
   description String?

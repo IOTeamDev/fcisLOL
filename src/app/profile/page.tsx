@@ -10,15 +10,22 @@ import {
 	TabsList,
 	TabsTrigger,
 } from "@/src/components/ui/tabs";
-import UserVideos from "./UserVideos";
-import UserFiles from "./UserFiles";
+import UserVideos from "./pages/UserVideos";
+import UserFiles from "./pages/UserFiles";
+import UserLinks from "./pages/UserLinks";
 
 const page = async () => {
 	const session = await getServerSession();
 	if (!session?.user) {
 		return <NotFound />;
 	}
-	const user = await getUserByEmail(session.user.email, true, false, true);
+	const user = await getUserByEmail(
+		session.user.email,
+		true,
+		false,
+		true,
+		true
+	);
 	const userVideos = user?.videos?.filter(
 		(video) => video.status === "APPROVED"
 	);
@@ -45,6 +52,7 @@ const page = async () => {
 					<TabsList>
 						<TabsTrigger value="videos">Videos</TabsTrigger>
 						<TabsTrigger value="files">Files</TabsTrigger>
+						<TabsTrigger value="links">Links</TabsTrigger>
 					</TabsList>
 				</div>
 				<TabsContent value="videos">
@@ -52,6 +60,9 @@ const page = async () => {
 				</TabsContent>
 				<TabsContent value="files">
 					<UserFiles userFiles={user?.files} />
+				</TabsContent>
+				<TabsContent value="links">
+					<UserLinks userLinks={user?.links} />
 				</TabsContent>
 			</Tabs>
 		</div>
