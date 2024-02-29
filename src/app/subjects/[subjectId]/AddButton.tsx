@@ -104,12 +104,12 @@ const AddButton = ({ subjectId, user, type }: Props) => {
 						middle.click();
 					}
 					if (user.role === "USER") {
-						toast.success("File added and is waiting for approval! 🎉");
+						toast.success("Link added and is waiting for approval! 🎉");
 					} else {
-						toast.success("File added successfully! 🎉");
+						toast.success("Link added successfully! 🎉");
 					}
 				} catch (error) {
-					toast.error("An error has occurred, Probably invalid file URL");
+					toast.error("An error has occurred, Probably invalid Link URL");
 					throw error;
 				}
 			};
