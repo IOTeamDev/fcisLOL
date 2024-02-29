@@ -10,7 +10,7 @@ export default function FileComponent({
 }) {
   return (
     <Link href={target}>
-      <Card className="p-4">
+      <Card className="p-4 border-[#020817] dark:border-white border-2">
         <div>
           <div className="flex items-center space-x-4">
             <div className="flex items-center justify-center p-3 rounded-lg border w-12 h-12 bg-gray-100 dark:bg-gray-800">

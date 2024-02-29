@@ -7,7 +7,7 @@ const Page = () => {
     <div className="min-w-screen flex-grow flex justify-center items-center">
       <div className="grid grid-cols-2 gap-4 max-[1100px]:grid-cols-1">
         <LinkCard
-          className="w-[500px] max-[550px]:w-[400px] max-[500px]:w-[300px]"
+          className="w-[500px] max-[550px]:w-[400px] max-[500px]:w-[300px] border-[#020817] dark:border-white border-2"
           href="/levels/1"
         >
           Level 1

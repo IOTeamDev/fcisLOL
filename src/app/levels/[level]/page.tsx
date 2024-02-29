@@ -12,14 +12,16 @@ const page = async ({ params }: { params: { level: string } }) => {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <h1 className="text-5xl font-bold m-20">Level {params.level[0]}!</h1>
+      <h1 className="text-5xl font-bold m-20 underline">
+        Level {params.level[0]}!
+      </h1>
       <div className="min-w-sreen flex-grow flex flex-col justify-center items-center">
         <div className="grid grid-cols-1 gap-4">
           {levelSemesters.map((semester, index) => (
             <LinkCard
               key={index}
               href={`/semesters/${semester.id}`}
-              className="w-[500px] max-[550px]:w-[400px] max-[500px]:w-[300px]"
+              className="w-[500px] max-[550px]:w-[400px] max-[500px]:w-[300px] border-[#020817] dark:border-white border-2"
             >
               <p>{semester.name}</p>
             </LinkCard>

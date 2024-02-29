@@ -23,7 +23,10 @@ const page = async ({ params }: { params: { semesterId: string } }) => {
       <div className="grid grid-cols-4 max-xl:grid-cols-2 max-md:grid-cols-1 gap-5 mt-20">
         {currentSemesterSubject.map((subject, index) => (
           <div key={index} className="hover:scale-105">
-            <LinkCard href={`/subjects/${subject.id}`}>
+            <LinkCard
+              href={`/subjects/${subject.id}`}
+              className="border-[#020817] dark:border-white border-2"
+            >
               <p className="text-center">{subject.name}</p>
             </LinkCard>
           </div>

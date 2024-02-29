@@ -15,7 +15,9 @@ const VideoPage = ({ currentSubject, user }: Props) => {
   if (currentSubject?.videos.length == 0) {
     return (
       <div className="w-full h-screen flex-grow flex flex-col justify-center items-center">
-        <h2 className="text-5xl font-bold -mt-40">{currentSubject?.name}</h2>
+        <h2 className="text-5xl font-bold -mt-40 text-center">
+          {currentSubject?.name}
+        </h2>
         <div className="flex flex-col items-center">
           <p className="black:text-white text-center text-4xl font-extrabold p-4 max-md:text-xl opacity-70">
             No Videos Here Yet 😓 <br /> Why Don&apos;t You Add One?! 😏
@@ -43,7 +45,7 @@ const VideoPage = ({ currentSubject, user }: Props) => {
     <div className="flex-grow flex mt-10 flex-col gap-9 items-center ">
       <h2 className="text-5xl font-bold text-center">{currentSubject?.name}</h2>
       {/* SEARCH BAR */}
-      <div className="p-2 flex flex-col border-4 border-stone-500 border-opacity-35 rounded-xl">
+      <div className="p-2 flex flex-col border-[#020817] dark:border-white border-2 rounded-xl">
         <form className="flex w-full max-w-sm items-center space-x-2">
           <Input
             className="flex-1"

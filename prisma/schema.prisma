@@ -72,16 +72,24 @@ model File {
   updatedAt DateTime? @updatedAt
 }
 model Link {
-  id        Int      @id @default(autoincrement())
-  title     String
+  id          Int      @id @default(autoincrement())
+  title       String
   description String?
-  url       String
-  subjectId Int
-  subject   Subject @relation(fields: [subjectId], references: [id])
-  userId    Int
-  publisher User    @relation(fields: [userId], references: [id])
-  status    Status
-  updatedAt DateTime? @updatedAt
+  url         String
+  subjectId   Int
+  subject     Subject @relation(fields: [subjectId], references: [id])
+  userId      Int
+  publisher   User    @relation(fields: [userId], references: [id])
+  status      Status
+  type        Type    @default(OTHER)
+  updatedAt   DateTime? @updatedAt
+}
+
+enum Type {
+  YOUTUBE_PLAYLIST
+  GOOGLE_DRIVE_FOLDER
+  TELEGRAM
+  OTHER
 }
 
 enum Status {
