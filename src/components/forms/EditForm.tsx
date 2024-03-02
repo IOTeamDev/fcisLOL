@@ -8,6 +8,17 @@ import { updateFile } from "@/src/lib/db/files/updateFile";
 import { updatelink } from "@/src/lib/db/link/updateLink";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/src/components/ui/sheet";
+import { DeleteVideo } from "@/src/lib/db/videos/deleteVideo";
+import { DeleteLink } from "@/src/lib/db/link/deleteLink";
+import { DeleteFile } from "@/src/lib/db/files/deleteFile";
 
 interface Props {
   type: string;
@@ -58,6 +69,67 @@ const EditForm = ({ type, id, initialValues }: Props) => {
       default:
         console.error("Invalid type");
     }
+  };
+
+  const handleDelete = async () => {
+    switch (type) {
+      case "Video":
+        await DeleteVideo(Number(id));
+        toast.success("Video deleted");
+        setTimeout(() => {
+          router.push("/");
+        }, 1000);
+        break;
+      case "File":
+        await DeleteFile(Number(id));
+        toast.success("File deleted");
+        setTimeout(() => {
+          router.push("/");
+        }, 1000);
+        break;
+      case "Link":
+        await DeleteLink(Number(id));
+        toast.success("Link deleted");
+        setTimeout(() => {
+          router.push("/");
+        }, 1000);
+        break;
+      default:
+        console.error("Invalid type");
+    }
+  };
+
+  const DeleteConfirmationSheet = () => {
+    return (
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button className="w-1/2 mx-2" variant={"ghost"}>
+            Delete
+          </Button>
+        </SheetTrigger>
+        <SheetContent side={"bottom"}>
+          <SheetHeader>
+            <SheetTitle className="text-center">
+              Are you sure you want to delete?
+            </SheetTitle>
+          </SheetHeader>
+          <div className="my-8 flex justify-center items-center gap-4 flex-col">
+            <Button
+              className="w-full"
+              variant={"destructive"}
+              onClick={() => handleDelete()}
+            >
+              Delete
+            </Button>
+            <SheetClose asChild>
+              <Button className="w-full" variant={"secondary"}>
+                Cancel
+              </Button>
+            </SheetClose>
+          </div>
+        </SheetContent>
+      </Sheet>
+    );
   };
 
   return (
@@ -116,7 +188,7 @@ const EditForm = ({ type, id, initialValues }: Props) => {
           Save
         </Button>
       </form>
-      <Button variant={"ghost"}>Delete?</Button>
+      <DeleteConfirmationSheet />
     </div>
   );
 };
