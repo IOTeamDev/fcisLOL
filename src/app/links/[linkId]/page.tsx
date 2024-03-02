@@ -40,6 +40,11 @@ const page = async ({ params }: { params: { linkId: string } }) => {
           <Link href={link.url} className="underline" target="_blank">
             <Button>Visit link</Button>
           </Link>
+          <Button className="mt-4" variant={"secondary"}>
+            <Link href={`/edit/link/${link.id}`} className="mx-4">
+              Edit
+            </Link>
+          </Button>
         </div>
       </div>
     );

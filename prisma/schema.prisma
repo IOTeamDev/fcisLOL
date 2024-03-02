@@ -17,7 +17,7 @@ model User {
   videos    Video[]
   subjects  Subject[]
   files     File[]
-  links    Link[]
+  links     Link[]
 }
 
 enum Role {

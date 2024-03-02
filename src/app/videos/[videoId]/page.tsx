@@ -6,6 +6,7 @@ import Link from "next/link";
 import React from "react";
 import AvatarIcon from "@/src/components/ui/avatarIcon";
 import NotFound from "@/src/components/NotFound";
+import { Button } from "@/src/components/ui/button";
 
 const page = async ({ params }: { params: { videoId: string } }) => {
   const video = await getVideoById(Number(params.videoId));
@@ -38,6 +39,11 @@ const page = async ({ params }: { params: { videoId: string } }) => {
         <Card className="">
           <EmbedYTVideo url={video.url} />
         </Card>
+        <Button className="mt-4" variant={"secondary"}>
+          <Link href={`/edit/video/${video.id}`} className="mx-4">
+            Edit
+          </Link>
+        </Button>
       </div>
     );
   } else {
