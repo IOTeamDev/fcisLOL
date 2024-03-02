@@ -3,12 +3,18 @@ import EditForm from "@/src/components/forms/EditForm";
 import { getVideoById } from "@/src/lib/db/videos/getVideoById";
 import { getFileById } from "@/src/lib/db/files/getFileById";
 import { getLinkById } from "@/src/lib/db/link/getLinkById";
+import { getUserByEmail } from "@/src/lib/db/user/getUser";
+import NotFound from "@/src/components/NotFound";
+import { getServerSession } from "next-auth";
 
 const Page = async ({
   params,
 }: {
   params: { type: string; typeId: string };
 }) => {
+  const session = await getServerSession();
+  const user = await getUserByEmail(session?.user?.email);
+
   let item;
   let type;
 
@@ -29,7 +35,7 @@ const Page = async ({
       return <div>Invalid type</div>;
   }
 
-  if (item) {
+  if (item && user?.role === "SUPERADMIN") {
     const initialValues = {
       url: item.url,
       title: item.title,
@@ -47,7 +53,7 @@ const Page = async ({
       </div>
     );
   } else {
-    return <div>Item not found</div>;
+    return <NotFound />;
   }
 };
 

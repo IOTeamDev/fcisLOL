@@ -61,60 +61,63 @@ const EditForm = ({ type, id, initialValues }: Props) => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit((data: any) => onSubmit(data))}
-      className=" flex flex-col mt-4 gap-10 items-center"
-    >
-      {type === "Link" && (
-        <div className="w-full flex flex-col justify-center">
-          <label htmlFor="type">Link Type:</label>
-          <select
-            id="type"
-            className="rounded-md p-2"
+    <div className="flex flex-col mt-4 gap-10 items-center">
+      <form
+        onSubmit={handleSubmit((data: any) => onSubmit(data))}
+        className="flex flex-col mt-4 gap-10 items-center"
+      >
+        {type === "Link" && (
+          <div className="w-full flex flex-col justify-center">
+            <label htmlFor="type">Link Type:</label>
+            <select
+              id="type"
+              className="rounded-md p-2"
+              required
+              {...register("type")}
+            >
+              <option value="OTHER">Select Link Type</option>
+              <option value="YOUTUBE_PLAYLIST">Youtube Playlist</option>
+              <option value="GOOGLE_DRIVE_FOLDER">Google Drive Folder</option>
+              <option value="TELEGRAM">Telegram</option>
+              <option value="OTHER">Other</option>
+            </select>
+          </div>
+        )}
+        <div className="space-y-2">
+          <label htmlFor="url">URL:</label>
+          <Input
+            id="url"
+            type="url"
+            placeholder={`${type === "Video" ? "Youtube" : ""} ${type} URL`}
+            {...register("url")}
             required
-            {...register("type")}
-          >
-            <option value="OTHER">Select Link Type</option>
-            <option value="YOUTUBE_PLAYLIST">Youtube Playlist</option>
-            <option value="GOOGLE_DRIVE_FOLDER">Google Drive Folder</option>
-            <option value="TELEGRAM">Telegram</option>
-            <option value="OTHER">Other</option>
-          </select>
+          />
         </div>
-      )}
-      <div className="space-y-2">
-        <label htmlFor="url">URL:</label>
-        <Input
-          id="url"
-          type="url"
-          placeholder={`${type === "Video" ? "Youtube" : ""} ${type} URL`}
-          {...register("url")}
-          required
-        />
-      </div>
-      <div className="space-y-2">
-        <label htmlFor="title">Title:</label>
-        <Input
-          id="title"
-          placeholder={`${type} Title`}
-          type="text"
-          {...register("title")}
-          required
-        />
-      </div>
-      <div className="space-y-2">
-        <label htmlFor="description">Description:</label>
-        <Input
-          id="description"
-          placeholder={`Enter ${type} Description (Optional)`}
-          type="text"
-          {...register("description")}
-        />
-      </div>
-      <Button type="submit" className="w-[70px]">
-        Save
-      </Button>
-    </form>
+        <div className="space-y-2">
+          <label htmlFor="title">Title:</label>
+          <Input
+            id="title"
+            placeholder={`${type} Title`}
+            type="text"
+            {...register("title")}
+            required
+          />
+        </div>
+        <div className="space-y-2">
+          <label htmlFor="description">Description:</label>
+          <Input
+            id="description"
+            placeholder={`Enter ${type} Description (Optional)`}
+            type="text"
+            {...register("description")}
+          />
+        </div>
+        <Button type="submit" className="w-[70px]">
+          Save
+        </Button>
+      </form>
+      <Button variant={"ghost"}>Delete?</Button>
+    </div>
   );
 };
 
