@@ -7,6 +7,9 @@ export const getLinkById = async (linkId: number) => {
 			where: {
 				id: linkId,
 			},
+			include: {
+				subject: true,
+			},
 		});
 		return link;
 	} catch (error) {
