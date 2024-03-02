@@ -1,18 +1,21 @@
 import { Card } from "@/src/components/ui/card";
 import EmbedYTVideo from "@/src/components/EmbedYTVideo";
-import { getUserById } from "@/src/lib/db/user/getUser";
+import { getUserByEmail, getUserById } from "@/src/lib/db/user/getUser";
 import { getVideoById } from "@/src/lib/db/videos/getVideoById";
 import Link from "next/link";
 import React from "react";
 import AvatarIcon from "@/src/components/ui/avatarIcon";
 import NotFound from "@/src/components/NotFound";
 import { Button } from "@/src/components/ui/button";
+import { getServerSession } from "next-auth";
 
 const page = async ({ params }: { params: { videoId: string } }) => {
   const video = await getVideoById(Number(params.videoId));
+  const session = await getServerSession();
+  const user = await getUserByEmail(session?.user?.email);
 
   if (video && video?.status === "APPROVED") {
-    const user = await getUserById(video?.userId);
+    const fileUser = await getUserById(video?.userId);
     return (
       <div className="w-full flex flex-col justify-center items-center p-8">
         <h1 className="text-4xl max-[1000px]:text-2xl max-[500px]:text-xl font-bold pb-4 text-center">
@@ -32,14 +35,14 @@ const page = async ({ params }: { params: { videoId: string } }) => {
               href={`/profile/${video.userId}`}
               className="text-lg max-[1000px]:text-sm max-[500px]:text-xs underline"
             >
-              {user?.firstName} {user?.lastName}
+              {fileUser?.firstName} {fileUser?.lastName}
             </Link>
           </div>
         </div>
         <Card className="">
           <EmbedYTVideo url={video.url} />
         </Card>
-        {user?.role === "SUPERADMIN" && (
+        {fileUser?.id === user?.id && (
           <Button className="mt-4" variant={"secondary"}>
             <Link href={`/edit/video/${video.id}`} className="mx-4">
               Edit

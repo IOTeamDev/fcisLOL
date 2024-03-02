@@ -17,25 +17,31 @@ const Page = async ({
 
   let item;
   let type;
+  let itemUserId;
 
   switch (params.type) {
     case "video":
       item = await getVideoById(Number(params.typeId));
+      itemUserId = item?.userId;
       type = "Video";
       break;
     case "file":
       item = await getFileById(Number(params.typeId));
+      itemUserId = item?.userId;
       type = "File";
+
       break;
     case "link":
       item = await getLinkById(Number(params.typeId));
+      itemUserId = item?.userId;
       type = "Link";
+
       break;
     default:
       return <div>Invalid type</div>;
   }
 
-  if (item && user?.role === "SUPERADMIN") {
+  if (item && user?.id === itemUserId) {
     const initialValues = {
       url: item.url,
       title: item.title,

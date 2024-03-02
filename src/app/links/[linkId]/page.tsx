@@ -3,14 +3,18 @@ import AvatarIcon from "@/src/components/ui/avatarIcon";
 import { Button } from "@/src/components/ui/button";
 import { Card } from "@/src/components/ui/card";
 import { getLinkById } from "@/src/lib/db/link/getLinkById";
-import { getUserById } from "@/src/lib/db/user/getUser";
+import { getUserByEmail, getUserById } from "@/src/lib/db/user/getUser";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
 
 const page = async ({ params }: { params: { linkId: string } }) => {
   const link = await getLinkById(Number(params.linkId));
+  const session = await getServerSession();
+  const user = await getUserByEmail(session?.user?.email);
+
 
   if (link && link.status === "APPROVED") {
-    const user = await getUserById(link?.userId);
+    const fileUser = await getUserById(link?.userId);
     return (
       <div className="w-full flex flex-col justify-center items-center p-8">
         <div className="flex items-center p-8">
@@ -21,7 +25,7 @@ const page = async ({ params }: { params: { linkId: string } }) => {
             href={`/profile/${link.userId}`}
             className="text-lg max-[1000px]:text-sm max-[500px]:text-xs underline"
           >
-            {user?.firstName} {user?.lastName}
+            {fileUser?.firstName} {fileUser?.lastName}
           </Link>
         </div>
         <h1 className="text-4xl max-[1000px]:text-2xl max-[500px]:text-xl font-bold pb-4 text-center">
@@ -40,13 +44,13 @@ const page = async ({ params }: { params: { linkId: string } }) => {
           <Link href={link.url} className="underline" target="_blank">
             <Button>Visit link</Button>
           </Link>
-          {user?.role === "SUPERADMIN" && (
-            <Button className="mt-4" variant={"secondary"}>
-              <Link href={`/edit/link/${link.id}`} className="mx-4">
-                Edit
-              </Link>
-            </Button>
-          )}
+          {fileUser?.id === user?.id && (
+          <Button className="mt-4" variant={"secondary"}>
+            <Link href={`/edit/link/${link.id}`} className="mx-4">
+              Edit
+            </Link>
+          </Button>
+        )}
         </div>
       </div>
     );
