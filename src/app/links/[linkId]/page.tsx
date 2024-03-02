@@ -37,7 +37,7 @@ const page = async ({ params }: { params: { linkId: string } }) => {
         <div className="flex flex-col items-center">
           <Card className="p-4 my-4">Link: {link.url}</Card>
 
-          <Link href={link.url} className="underline">
+          <Link href={link.url} className="underline" target="_blank">
             <Button>Visit link</Button>
           </Link>
         </div>
