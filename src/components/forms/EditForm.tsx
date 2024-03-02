@@ -63,12 +63,13 @@ const EditForm = ({ type, id, initialValues }: Props) => {
   return (
     <form
       onSubmit={handleSubmit((data: any) => onSubmit(data))}
-      className=" flex flex-col mt-4 gap-10"
+      className=" flex flex-col mt-4 gap-10 items-center"
     >
       {type === "Link" && (
-        <div className="w-full flex justify-center">
+        <div className="w-full flex flex-col justify-center">
+          <label htmlFor="type">Link Type:</label>
           <select
-            id="from"
+            id="type"
             className="rounded-md p-2"
             required
             {...register("type")}
@@ -82,6 +83,7 @@ const EditForm = ({ type, id, initialValues }: Props) => {
         </div>
       )}
       <div className="space-y-2">
+        <label htmlFor="url">URL:</label>
         <Input
           id="url"
           type="url"
@@ -91,6 +93,7 @@ const EditForm = ({ type, id, initialValues }: Props) => {
         />
       </div>
       <div className="space-y-2">
+        <label htmlFor="title">Title:</label>
         <Input
           id="title"
           placeholder={`${type} Title`}
@@ -100,6 +103,7 @@ const EditForm = ({ type, id, initialValues }: Props) => {
         />
       </div>
       <div className="space-y-2">
+        <label htmlFor="description">Description:</label>
         <Input
           id="description"
           placeholder={`Enter ${type} Description (Optional)`}

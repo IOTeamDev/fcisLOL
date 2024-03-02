@@ -39,11 +39,13 @@ const page = async ({ params }: { params: { videoId: string } }) => {
         <Card className="">
           <EmbedYTVideo url={video.url} />
         </Card>
-        <Button className="mt-4" variant={"secondary"}>
-          <Link href={`/edit/video/${video.id}`} className="mx-4">
-            Edit
-          </Link>
-        </Button>
+        {user?.role === "SUPERADMIN" && (
+          <Button className="mt-4" variant={"secondary"}>
+            <Link href={`/edit/video/${video.id}`} className="mx-4">
+              Edit
+            </Link>
+          </Button>
+        )}
       </div>
     );
   } else {

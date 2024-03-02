@@ -38,11 +38,13 @@ const page = async ({ params }: { params: { fileId: string } }) => {
         <Card className="flex justify-center p-10">
           <EmbedDriveFile fileUrl={file?.url} />
         </Card>
-        <Button className="mt-4" variant={"secondary"}>
-          <Link href={`/edit/file/${file.id}`} className="mx-4">
-            Edit
-          </Link>
-        </Button>
+        {user?.role === "SUPERADMIN" && (
+          <Button className="mt-4" variant={"secondary"}>
+            <Link href={`/edit/file/${file.id}`} className="mx-4">
+              Edit
+            </Link>
+          </Button>
+        )}
       </div>
     );
   } else {
