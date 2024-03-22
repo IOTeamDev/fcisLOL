@@ -5,6 +5,7 @@ import ThemeProviderWrapper from "../lib/ThemeProviderWrapper";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import Footer from "../components/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "LOL",
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.className}>
       <body className="min-h-screen flex flex-col">
+        <Analytics />
         <Toaster position="top-center" reverseOrder />
         <ThemeProviderWrapper>
           <NavBar />
