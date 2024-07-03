@@ -1,7 +1,7 @@
 "use server";
 import prisma from "@/src/lib/PrismaClient";
 
-export const DeleteFile = async (fileId: any) => {
+export const deleteFile = async (fileId: any) => {
 	try {
 		const Files = await prisma.file.delete({
 			where: { id: fileId },
