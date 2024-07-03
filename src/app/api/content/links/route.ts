@@ -10,6 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (req.query.id) {
                 try {
                     const link = await getLinkById(Number(req.query.id));
+                    // the request will be like /api/content/links/1
                     res.status(200).json(link);
                 } catch (error) {
                     res.status(500).json({ error: 'Failed to fetch link' });

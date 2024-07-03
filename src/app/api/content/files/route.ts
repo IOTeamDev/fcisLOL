@@ -13,6 +13,7 @@ export default async function handler(
       if (req.query.id) {
         try {
           const file = await getFileById(Number(req.query.id));
+          // the request will be like /api/content/files/1
           res.status(200).json(file);
         } catch (error) {
           res.status(500).json({ error: "Failed to fetch file" });

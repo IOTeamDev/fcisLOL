@@ -9,6 +9,7 @@ export default async function handler(
     const files = await getPendingFilesBySubject(
       req.body.subjectsIds as number[]
     );
+    // the request will be like /api/content/pendingFiles
     res.status(200).json(files);
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch pending files" });
