@@ -1,7 +1,7 @@
 "use server";
 import prisma from "@/src/lib/PrismaClient";
 
-export const updatelink = async (linkId: number, data: any) => {
+export const updateLink = async (linkId: number, data: any) => {
 	const video = await prisma.link.update({
 		where: {
 			id: linkId,
